@@ -1,0 +1,167 @@
+\documentclass{report}
+
+\input{~/latex/template/preamble.tex}
+\input{~/latex/template/macros.tex}
+
+\title{\Huge{}}
+\author{\huge{Matt Warner}}
+\date{\huge{}}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+\lhead{\leftmark}
+\cfoot{\thepage}
+% \usepackage[default]{sourcecodepro} \usepackage[T1]{fontenc}
+
+\pgfpagesdeclarelayout{boxed}
+{
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=1,%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {
+    border code=\pgfsetlinewidth{1.5pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.95\pgfphysicalwidth,%
+    resized height=.95\pgfphysicalheight,%
+    center=\pgfpoint{.5\pgfphysicalwidth}{.5\pgfphysicalheight}%
+  }%
+}
+
+\pgfpagesuselayout{boxed}
+
+\begin{document}
+    \maketitle
+    \section{Temporaries in for loops}
+    Are we allowed to use a temporary in a range based for loop? Consider the following code:
+    \begin{minted}[linenos=true]{cpp}
+    std::vector<int> create_range() {
+        return {1,2,3,4,5};
+    } 
+    int main() {
+        for (auto const& value : create_range()) {
+            std::cout << value << ' ';
+        }
+    }
+    \end{minted}
+    Is the temporary object returned by \texttt{create\_range()} kept alive during the for loop? \vspace{1.5mm} \\ The answer is yes, and the following code prints:
+    \begin{minted}[linenos=false]{cpp}
+    1 2 3 4 5 
+    \end{minted}
+    But if we make anything more on the temporary, even something as simple as returning a reference to it:
+    \begin{minted}[linenos=true]{cpp}
+    std::vector<int> create_range() {
+        return {1,2,3,4,5};
+    } 
+    // Note: Const lvalues can be given rvalues
+    const std::vector<int>& f(const std::vector<int> &v) {
+        return v;
+    }
+    int main() {
+        for (auto const& value : f(create_range()))A {
+            std::cout << value << ' ';
+        }
+    }
+    \end{minted}
+    Then the code falls into undefined behaviour. On a certain implementation, the output is this:
+    \begin{minted}[linenos=false]{cpp}
+    0 0 3 4 5 
+    \end{minted}
+    Temporaries are usually destroyed on the end of a statement, so how we transform them on the line of code should not influence the moment they're destroyed.
+    \bigbreak \noindent
+    \subsection{The code of a range based for loop}
+    When we write a range based for loop, the compiler expands it into several lines of less nice looking code. \bigbreak \noindent
+    For example, the following loop:
+    \begin{minted}[linenos=true]{cpp}
+        for (const auto& value : myRange) {
+            // code using value
+        }
+    \end{minted}
+    Gets expanded into this:
+    \begin{minted}[linenos=true]{cpp}
+    {
+        auto&& range = myRange; 
+        auto begin = begin(range);
+        auto end = end(range);
+        for (; begin != end; ++begin) {
+            auto const& value = *begin;
+            // code using value
+        }
+
+    }
+    \end{minted}
+    \subsection{Using temporary objects}
+    Lets go back to our initial example using temporaries:
+    \begin{minted}[linenos=true]{cpp}
+    std::vector<int> create_range() {
+        return {1,2,3,4,5};
+    } 
+    int main () {
+        for (const auto& value : create_range()) {
+            std::cout << value << ' '; 
+        }
+    }
+    \end{minted}
+    Here is what the expanded for loop looks like in this case:
+    \begin{minted}[linenos=true]{cpp}
+    {
+        auto&& range = create_range(); 
+        auto begin = begin(range);
+        auto end = end(range);
+        for (; begin != end; ++begin) {
+            const auto& value = *begin;
+            // code using value
+        }
+    }
+    \end{minted}
+    As we can see, the temporary is not created on the line of the \texttt{for}, unlike what the syntax of the ranged based for loop could have been suggesting.
+    \bigbreak \noindent
+    How can the above code work? What prevents the temporary from being destroyed at the end of the statement it is created on, on line 2 in the above code?
+    \bigbreak \noindent
+    This is one of the properties of \texttt{auto\&\&}. Like \texttt{const\&}, a reference declared with \texttt{auto\&\&} keeps a temporary object alive until that reference itself gets out of scope. This is why the temporary object returned by \texttt{create\_range()} is still alive and valid when reaching the statements using its values inside of the for loop.
+\subsection{Transformations of temporary objects}
+New let's go back to the initial example that was undefined behaviour:
+\begin{minted}[linenos=false]{cpp}
+std::vector<int> create_range() {
+    return {1,2,3,4,5};
+}
+const std::vector<int>& f(const std::vector<int>& v) {
+    return v;
+}
+int main() {
+    for (const auto& value : f(create_range())) {
+        std::cout << value << ' '; 
+    }
+}
+\end{minted}
+Lets expand the loop again:
+\begin{minted}[linenos=false]{cpp}
+    auto&& range = f(create_range());
+    auto begin = begin(range);
+    auto end = end(range);
+    for (; begin != end; ++begin) {
+        const auto& value = *begin;
+        // code using value
+    }
+\end{minted}
+Can you see what's wrong with this code now?
+\bigbreak \noindent
+Unlike in the previous case, \texttt{auto\&\&} doesn't bind on the expression \texttt{create\_range()}. It binds on the reference to that object returned by \texttt{f}. And that is not enough to keep the temporary object alive.
+\bigbreak \noindent
+It is interesting to note that range is declared with an \texttt{auto\&\&} binding to a \texttt{const\&} which is defined (in the implementation of \texttt{f}) to be equal to a \texttt{const\&} on the temporary. So we have a chain of \texttt{auto\&\&} and \texttt{const\&} which, individually, can keep a temporary alive. But if we don't have a simple expression with one of them biding directly on the temporary, they do not keep it alive.
+\bigbreak \noindent
+\subsection{How to fix the code}
+If you have to use \texttt{f} to make a transformation on your temporary, then you can store the result of this transformation in a seperate object, defined on a seperate line:
+\begin{minted}[linenos=false]{cpp}
+auto transformed_range = f(create_range());
+for (auto const& value : transformed_range) {
+    std::cout << value << ' ';
+}
+\end{minted}
+This is less nice because it adds code without adding meaning, and it generates a copy of the transformed range. But in the case of a transformation, \texttt{f} can return by value, which can enable \textbf{return value optimisations} or move semantics if the type is moveable. But still, the code gets less concise.
+\end{document}
+

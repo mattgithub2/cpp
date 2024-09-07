@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{x}\PYG{+w}{ }\PYG{n}{obj}\PYG{p}{;}
+\PYG{n}{x}\PYG{o}{*}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{obj}\PYG{p}{.}\PYG{k}{this}\PYG{p}{();}
+\end{Verbatim}

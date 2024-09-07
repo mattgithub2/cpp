@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{a}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{;}
+\PYG{n}{print\PYGZus{}int}\PYG{p}{(}\PYG{n}{a}\PYG{p}{)}\PYG{+w}{ }\PYG{c+c1}{// calls l\PYGZhy{}reference function (called with an l\PYGZhy{}value)}
+\PYG{n}{print\PYGZus{}int}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)}\PYG{+w}{ }\PYG{c+c1}{// calls r\PYGZhy{}reference function (called with an r\PYGZhy{}value)}
+\end{Verbatim}

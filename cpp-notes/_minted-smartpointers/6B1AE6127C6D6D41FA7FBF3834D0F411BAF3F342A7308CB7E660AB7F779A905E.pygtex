@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{smart\PYGZus{}ptr}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ptr}\PYG{p}{(}\PYG{k}{new}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{));}
+\PYG{c+c1}{// Using the move copy constructor}
+\PYG{n}{smart\PYGZus{}ptr}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ptr2}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{move}\PYG{p}{(}\PYG{n}{ptr}\PYG{p}{));}
+\PYG{c+c1}{// Using the move assignment operator}
+\PYG{n}{ptr2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{move}\PYG{p}{(}\PYG{n}{ptr}\PYG{p}{);}
+\end{Verbatim}

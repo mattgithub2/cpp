@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// i is a lvalue}
+\PYG{k+kt}{int}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{p}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{i}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// i\PYGZsq{}s address is identifiable}
+\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// Memory content is modified}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{dog}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// lvalue of user defined type (class)}
+\PYG{n}{dog}\PYG{+w}{ }\PYG{n}{dl}\PYG{p}{;}
+
+\end{Verbatim}

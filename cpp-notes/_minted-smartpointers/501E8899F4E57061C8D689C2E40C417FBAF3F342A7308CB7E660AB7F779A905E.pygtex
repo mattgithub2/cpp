@@ -1,0 +1,31 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+
+\PYG{c+c1}{// Custom deleter functor for non array types}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Tp}\PYG{o}{\PYGZgt{}}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{default\PYGZus{}delete}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{  }\PYG{n}{default\PYGZus{}delete}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Up}\PYG{o}{\PYGZgt{}}
+\PYG{+w}{  }\PYG{n}{default\PYGZus{}delete}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{default\PYGZus{}delete}\PYG{o}{\PYGZlt{}}\PYG{n}{Up}\PYG{o}{\PYGZgt{}\PYGZam{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{  }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{k}{operator}\PYG{p}{()(}\PYG{n}{Tp}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{ptr}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{static\PYGZus{}assert}\PYG{p}{(}\PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Tp}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}
+\PYG{+w}{    }\PYG{l+s}{\PYGZdq{}cannot delete pointer to incomplete type\PYGZdq{}}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{delete}\PYG{+w}{ }\PYG{n}{ptr}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+c1}{// Custom deleter functor for array types}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Tp}\PYG{o}{\PYGZgt{}}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{default\PYGZus{}delete}\PYG{o}{\PYGZlt{}}\PYG{n}{Tp}\PYG{p}{[]}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{  }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{operator}\PYG{p}{()(}\PYG{n}{Tp}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{ptr}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{static\PYGZus{}assert}\PYG{p}{(}\PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{Tp}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}
+\PYG{+w}{    }\PYG{l+s}{\PYGZdq{}cannot delete pointer to incomplete type\PYGZdq{}}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{delete}\PYG{+w}{ }\PYG{p}{[]}\PYG{+w}{ }\PYG{n}{ptr}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

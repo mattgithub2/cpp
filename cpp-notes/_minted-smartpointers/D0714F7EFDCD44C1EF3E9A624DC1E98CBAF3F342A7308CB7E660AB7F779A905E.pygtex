@@ -1,0 +1,38 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{public}\PYG{o}{:}
+
+\PYG{c+c1}{// Constructors.}
+\PYG{n}{smart\PYGZus{}ptr}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{M\PYGZus{}t}\PYG{p}{(}\PYG{n}{pointer}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{deleter\PYGZus{}type}\PYG{p}{())}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{       }\PYG{c+c1}{// Sets tuple with type defaults.}
+
+\PYG{n}{smart\PYGZus{}ptr}\PYG{p}{(}\PYG{n}{pointer}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{M\PYGZus{}t}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{deleter\PYGZus{}type}\PYG{p}{())}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{     }\PYG{c+c1}{// passed a pointer but no deleter}
+
+\PYG{n}{smart\PYGZus{}ptr}\PYG{p}{(}\PYG{n}{pointer}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{deleter\PYGZus{}type}\PYG{+w}{ }\PYG{n}{deleter}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{M\PYGZus{}t}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{deleter}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}\PYGZcb{}}\PYG{+w}{ }\PYG{c+c1}{// passed a pointer and deleter}
+
+\PYG{c+c1}{// Move constructors.}
+\PYG{n}{smart\PYGZus{}ptr}\PYG{p}{(}\PYG{n}{smart\PYGZus{}ptr}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{rhs}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{std}\PYG{o}{::}\PYG{n}{get}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{M\PYGZus{}t}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{rhs}\PYG{p}{.}\PYG{n}{release}\PYG{p}{();}
+
+\PYG{+w}{  }\PYG{n}{std}\PYG{o}{::}\PYG{n}{get}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{M\PYGZus{}t}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{forward}\PYG{o}{\PYGZlt{}}\PYG{n}{deleter\PYGZus{}type}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{rhs}\PYG{p}{.}\PYG{n}{get\PYGZus{}deleter}\PYG{p}{());}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+c1}{// class helpers}
+\PYG{n}{pointer}\PYG{+w}{ }\PYG{n+nf}{get}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{get}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{M\PYGZus{}t}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{std}\PYG{o}{::}\PYG{n}{add\PYGZus{}lvalue\PYGZus{}reference\PYGZus{}t}\PYG{o}{\PYGZlt{}}\PYG{n}{deleter\PYGZus{}type}\PYG{o}{\PYGZgt{}::}\PYG{n}{type}
+\PYG{n}{get\PYGZus{}deleter}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{get}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{1}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{M\PYGZus{}t}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{pointer}\PYG{+w}{ }\PYG{n}{release}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{  }\PYG{c+c1}{// gets the pointer from rhs}
+\PYG{+w}{  }\PYG{n}{pointer}\PYG{+w}{ }\PYG{n}{p}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{get}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{M\PYGZus{}t}\PYG{p}{);}
+
+\PYG{+w}{  }\PYG{c+c1}{// rhs pointer points to null}
+\PYG{+w}{  }\PYG{n}{std}\PYG{o}{::}\PYG{n}{get}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{M\PYGZus{}t}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

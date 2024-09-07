@@ -1,0 +1,1 @@
+app-text/doxygen -gui /etc/portage/package.use/urxvt

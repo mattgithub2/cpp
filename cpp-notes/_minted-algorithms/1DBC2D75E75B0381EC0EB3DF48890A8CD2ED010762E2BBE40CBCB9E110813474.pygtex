@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{A}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{c+c1}{// Checking for equality}
+\PYG{n}{A}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{c+c1}{// Checking for inequality}
+\end{Verbatim}

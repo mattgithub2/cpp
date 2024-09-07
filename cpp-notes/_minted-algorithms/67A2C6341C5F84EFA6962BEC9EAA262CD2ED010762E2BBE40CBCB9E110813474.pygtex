@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{+w}{ }\PYG{c+c1}{// Definition of std::reverse\PYGZus{}copy()}
+\PYG{k}{template}\PYG{+w}{ }\PYG{n}{OutputIterator}\PYG{+w}{ }\PYG{n+nf}{reverse\PYGZus{}copy}\PYG{p}{(}\PYG{n}{BidirectionalIterator}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BidirectionalIterator}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{OutputIterator}\PYG{+w}{ }\PYG{n}{result}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{first}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{   }\PYG{o}{*}\PYG{n}{result}\PYG{o}{++}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{*\PYGZhy{}\PYGZhy{}}\PYG{n}{last}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{result}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

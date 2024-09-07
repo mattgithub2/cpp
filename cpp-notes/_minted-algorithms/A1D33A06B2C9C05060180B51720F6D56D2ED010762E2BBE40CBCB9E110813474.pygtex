@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{vec}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{l+m+mi}{45}\PYG{p}{,}\PYG{l+m+mi}{60}\PYG{p}{,}\PYG{l+m+mi}{78}\PYG{p}{,}\PYG{l+m+mi}{23}\PYG{p}{,}\PYG{l+m+mi}{21}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{};}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}::}\PYG{n}{iterator}\PYG{+w}{ }\PYG{n}{it}\PYG{p}{;}
+\PYG{c+c1}{// Using std::partial\PYGZus{}sort}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{partial\PYGZus{}sort}\PYG{p}{(}\PYG{n}{vec}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(),}\PYG{+w}{ }\PYG{n}{vec}\PYG{p}{.}\PYG{n}{begin}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vec}\PYG{p}{.}\PYG{n}{end}\PYG{p}{());}
+
+\PYG{c+c1}{// Displaying the smallest element after applying}
+\PYG{c+c1}{// std::partial\PYGZus{}sort}
+\PYG{n}{it}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vec}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{it}\PYG{p}{;}
+\end{Verbatim}

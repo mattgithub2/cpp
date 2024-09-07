@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{auto}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{range}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{f}\PYG{p}{(}\PYG{n}{create\PYGZus{}range}\PYG{p}{());}
+\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{begin}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{begin}\PYG{p}{(}\PYG{n}{range}\PYG{p}{);}
+\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{end}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{end}\PYG{p}{(}\PYG{n}{range}\PYG{p}{);}
+\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(;}\PYG{+w}{ }\PYG{n}{begin}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{end}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{begin}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{auto}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{value}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{begin}\PYG{p}{;}
+\PYG{+w}{    }\PYG{c+c1}{// code using value}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

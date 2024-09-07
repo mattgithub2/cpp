@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// \PYGZsh{} smartpointer.h}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{SmartPtr}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+
+\PYG{+w}{    }\PYG{c+c1}{// Ctor}
+\PYG{+w}{    }\PYG{n}{SmartPtr}\PYG{p}{(}\PYG{n}{T}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{Realptr}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{+w}{    }\PYG{c+c1}{// Copy ctor}
+\PYG{+w}{    }\PYG{n}{SmartPtr}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{SmartPtr}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{rhs}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{c+c1}{// dtor}
+\PYG{+w}{    }\PYG{o}{\PYGZti{}}\PYG{n}{SmartPtr}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{c+c1}{// Copy assignment ctor}
+\PYG{+w}{    }\PYG{n}{SmartPtr}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{o}{=}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{SmartPtr}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{rhs}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}\PYG{+w}{          }\PYG{c+c1}{// dereference a smart ptr}
+\PYG{+w}{                                    }\PYG{c+c1}{// to get at a member of what it points to}
+
+\PYG{+w}{    }\PYG{n}{T}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{o}{*}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}\PYG{+w}{           }\PYG{c+c1}{// dereference a smart ptr}
+
+\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{n}{T}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{pointee}\PYG{p}{;}
+
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

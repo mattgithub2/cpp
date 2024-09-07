@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{it1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{it2}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{it3}\PYG{p}{;}
+\PYG{n}{it2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{it3}\PYG{p}{;}
+
+\PYG{c+c1}{// perhaps even this one}
+\PYG{n}{it2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{++}\PYG{p}{(}\PYG{o}{++}\PYG{n}{it3}\PYG{p}{);}
+\end{Verbatim}

@@ -1,0 +1,118 @@
+\documentclass{report}
+
+\input{~/latex/template/preamble.tex}
+\input{~/latex/template/macros.tex}
+
+\title{\Huge{Pointer Things}}
+\author{\huge{Matt Warner}}
+\date{\huge{}}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+\lhead{\leftmark}
+\cfoot{\thepage}
+% \usepackage[default]{sourcecodepro} \usepackage[T1]{fontenc}
+
+\pgfpagesdeclarelayout{boxed}
+{
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=1,%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {
+    border code=\pgfsetlinewidth{1.5pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.95\pgfphysicalwidth,%
+    resized height=.95\pgfphysicalheight,%
+    center=\pgfpoint{.5\pgfphysicalwidth}{.5\pgfphysicalheight}%
+  }%
+}
+
+\pgfpagesuselayout{boxed}
+
+\begin{document}
+    \maketitle
+    \section{Using ptrdiff\_t for pointer subtraction}
+    By definition, \texttt{ptrdiff\_t} can represent any possible result of subtracting two pointers that point to the same array.  Or, if you perfer, the distance between two elements of the same array in either direction.
+    \nt{
+        \texttt{ptrdiff\_t} is always a signed value.
+        \bigbreak \noindent
+        It's nearly always equivalent to \texttt{make\_signed\_t<size\_t>}
+    }
+    \noindent Although \texttt{ptrdiff\_t} is signed and \texttt{size\_t}, they're closely related. However, mixing them can easily lead to accidental signed-to-unsigned comparisions.
+    \bigbreak \noindent
+    When comparing signed and unsigned values of the same size, the compiler first converts the signed value to unsigned. Therefore, if the signed value is negative, this can produce suprising results.
+    \section{Pointer types}
+    When creating a pointer, we can do so in the following ways:
+    \begin{minted}[linenos=false]{cpp}
+    int* x = nullptr; // Pointer to an int
+    const int* x = nullptr; // Pointer to a const int
+    int* const x = nullptr // Const pointer to an int
+    const int* const x = nullptr; // Const pointer to const int
+    \end{minted}
+    The following are the operations allowed/forbidden for these types
+    \begin{minted}[linenos=false]{cpp}
+    int x = 2;
+    int y =3;
+                                   
+    // Pointer to an int 
+    int* ptr = new int(4);
+    delete ptr;
+    ptr = &x; // OK
+    *ptr = 3; // OK
+              
+    // Pointer to const int (address pointed to can be changed (value stored at that address cannot) )
+    const int* ptr2 = &x;
+    ptr2 = &y; // OK
+     *ptr2 = 3; // Error!
+
+    // const pointer to int (address cannot be changed but the value stored at address can)
+    int* const ptr3 = &x;
+    *ptr3 = 3; // OK
+     ptr3 = &y; // Error!
+
+    // const pointer to a const int (address cannot be changed nor can the value stored at that address)
+    const int* const ptr4 = &x;
+    *ptr3 = 3; // Error!
+     ptr3 = &y // Error;
+
+    \end{minted}
+    \section{Function pointers}
+    Functions have memory addresses, so its only natural that we can create pointers to functions. The syntax looks like this:
+    \begin{minted}[linenos=false]{text}
+   return_type (*Funcptr) (parameter type, .....);
+    \end{minted}
+    Now we can give it an address to a function. Note: you cannot declare and initalize function pointers at the same time. You must first declare and then initalize. Consider the following code:
+    \begin{minted}[linenos=false]{cpp}
+    void foo() { std::cout << "Hello from foo. "; }
+
+    int main() {
+
+        // Declaring a function pointer
+        void (*funcptr)();
+        
+        // funcptr is pointing to foo
+        funcptr = foo;
+
+        // calling the function.
+        funcptr();
+
+        return 0;
+    }
+    \end{minted}
+    \subsection{Passing a function pointer as a parameter}
+    \begin{minted}[linenos=false]{cpp}
+    void print(void (*funcptr)()) {
+        std::cout << funcptr();
+    }
+    int main () {
+        void (*funcptr)();
+        funcptr = foo;
+        print(funcptr);
+    }
+    \end{minted}
+\end{document}

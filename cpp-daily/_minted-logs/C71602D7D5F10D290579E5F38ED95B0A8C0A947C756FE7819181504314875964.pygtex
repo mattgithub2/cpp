@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{p}{..}\PYG{+w}{ }\PYG{n}{Types}\PYG{o}{\PYGZgt{}}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{Tuple}\PYG{+w}{ }\PYG{p}{\PYGZob{}\PYGZcb{};}
+
+\PYG{n}{Tuple}\PYG{o}{\PYGZlt{}\PYGZgt{}}\PYG{+w}{ }\PYG{n}{t0}\PYG{p}{;}\PYG{+w}{             }\PYG{c+c1}{// Types contains no arguments}
+\PYG{n}{Tuple}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{t1}\PYG{p}{;}\PYG{+w}{          }\PYG{c+c1}{// Types contains one argument: int}
+\PYG{n}{Tuple}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{k+kt}{float}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{t2}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// Types contains two arguments: int and float}
+\PYG{n}{Tuple}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{t3}\PYG{p}{;}\PYG{+w}{            }\PYG{c+c1}{// Error: 0 is not a type}
+\end{Verbatim}

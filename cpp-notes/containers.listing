@@ -1,0 +1,23 @@
+    #include <array> // for at()
+    #include <tuple> // for get()
+
+    std::array<int,4> arr = {1,2,3,4};
+
+    // Using at()
+    for (uint8_t i = 0; i < 4; ++i) { std::cout << arr.at(i) << " ";}
+
+    // Stuff with get()
+    int first_element = std::get<0>(arr);
+    std::get<0>(arr) = 0;
+    std::cout << std::get<0>(arr);
+
+    // front() and back()
+    ar.front() = 10;
+    ar.back() = 10;
+
+    // Using swap()
+    std::array<int, 6> arr2 = {5,6,7,8};
+    ar.swap(arr2);
+
+    // Using empty()
+    if (ar.empty()) { cout << "Empty array!"}

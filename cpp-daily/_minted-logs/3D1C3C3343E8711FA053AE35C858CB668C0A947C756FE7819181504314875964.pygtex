@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{distance}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ptr}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{ptr2}\PYG{p}{;}\PYG{+w}{  }\PYG{c+c1}{// yields the distance between two pointers}
+\end{Verbatim}

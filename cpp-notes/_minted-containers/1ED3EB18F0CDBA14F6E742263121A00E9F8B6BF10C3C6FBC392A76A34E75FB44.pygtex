@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{o}{*}\PYG{n}{i}\PYG{+w}{                  }\PYG{c+c1}{// returns the current value}
+\PYG{o}{*}\PYG{n}{i}\PYG{+w}{  }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{v}\PYG{+w}{             }\PYG{c+c1}{// Assign value `v` to the value dererenced.}
+\PYG{o}{++}\PYG{n}{i}\PYG{+w}{                 }\PYG{c+c1}{// increments the iterator (returns a reference)}
+\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{i}\PYG{+w}{                 }\PYG{c+c1}{// See above}
+\PYG{n}{i}\PYG{o}{++}\PYG{+w}{                 }\PYG{c+c1}{// increments the iterator (but returns a reference to the original)}
+\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{+w}{                 }\PYG{c+c1}{// See above}
+\PYG{o}{*}\PYG{n}{i}\PYG{o}{++}\PYG{+w}{                }\PYG{c+c1}{// returns the current value and increments the iterator}
+\PYG{o}{*}\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{+w}{                }\PYG{c+c1}{// See above}
+
+\PYG{n}{i}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{              }\PYG{c+c1}{// Moves the iterator forward}
+\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZhy{}=}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{              }\PYG{c+c1}{// Same as last one}
+\PYG{n}{i}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{               }\PYG{c+c1}{// Creates a new iterator moved forward from i}
+\PYG{n}{n}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{               }\PYG{c+c1}{// Same as last one}
+\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{               }\PYG{c+c1}{// Same as last one}
+
+\PYG{n}{i1}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{i2}\PYG{+w}{             }\PYG{c+c1}{// returns the distance between the iterators.}
+
+\PYG{n}{i}\PYG{p}{[}\PYG{n}{n}\PYG{p}{]}\PYG{+w}{                }\PYG{c+c1}{// returns the item n steps forward from this iterator.}
+\PYG{n}{i}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{m}\PYG{+w}{                }\PYG{c+c1}{// Access the member `m` referenced by i}
+
+\PYG{n}{i1}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{  }\PYG{n}{i2}\PYG{+w}{            }\PYG{c+c1}{// Compare iterators}
+\PYG{n}{i1}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{  }\PYG{n}{i2}
+\PYG{n}{i1}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{i2}
+\PYG{n}{i1}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{+w}{ }\PYG{n}{i2}
+\PYG{n}{i1}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{i2}
+\PYG{n}{i1}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{i2}
+\end{Verbatim}

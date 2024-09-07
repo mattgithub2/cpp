@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{ptr}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{ptr2}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// Not allowed: adding two pointers}
+\PYG{n}{ptr}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ptr}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{ptr2}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// Not allowed: adding a pointer and another pointer}
+\PYG{n}{ptr}\PYG{o}{\PYGZhy{}=}\PYG{n}{ptr2}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// also not allowed}
+
+\end{Verbatim}

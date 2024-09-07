@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{U}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{p}{...}\PYG{+w}{ }\PYG{n}{Ts}\PYG{o}{\PYGZgt{}}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{valid}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// OK: can deduce U}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{p}{...}\PYG{+w}{ }\PYG{n}{Ts}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{U}\PYG{o}{\PYGZgt{}}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{invalid}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// Error: Ts... Not at the end}
+
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{p}{...}\PYG{+w}{ }\PYG{n}{Ts}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{U}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{o}{=}\PYG{k+kt}{void}\PYG{o}{\PYGZgt{}}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{valid}\PYG{p}{(}\PYG{n}{U}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Ts}\PYG{p}{...);}\PYG{+w}{       }\PYG{c+c1}{// OK: can deduce U}
+\PYG{c+c1}{// Void valid(Ts..., U);    // Can\PYGZsq{}t be used: Ts... is a non\PYGZhy{}deduced context in this position}
+
+\PYG{n}{valid}\PYG{p}{(}\PYG{l+m+mf}{1.0}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{);}\PYG{+w}{        }\PYG{c+c1}{// OK: deduces U as double, Ts as \PYGZob{}int, int, int\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{vector}\PYG{o}{\PYGZgt{}}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{vector\PYGZus{}iterator}\PYG{+w}{  }\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{vector}\PYG{o}{::}\PYG{n}{value\PYGZus{}type}\PYG{+w}{ }\PYG{n}{value\PYGZus{}type}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// typename required}
+\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{value\PYGZus{}type}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{pointer}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// no typename needed}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

@@ -1,0 +1,544 @@
+\documentclass{report}
+
+\input{~/latex/template/preamble.tex}
+\input{~/latex/template/macros.tex}
+
+\title{\Huge{C++ Containers}}
+\author{\huge{Matt Warner}}
+\date{\huge{}}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+\lhead{\leftmark}
+\cfoot{\thepage}
+% \usepackage[default]{sourcecodepro}
+% \usepackage[T1]{fontenc}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+% \geometry{a4paper, margin=0.25in}
+\pgfplotsset{compat=1.18}
+
+\pgfpagesdeclarelayout{boxed}
+{
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=1,%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {
+    border code=\pgfsetlinewidth{1.5pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.95\pgfphysicalwidth,%
+    resized height=.95\pgfphysicalheight,%
+    center=\pgfpoint{.5\pgfphysicalwidth}{.5\pgfphysicalheight}%
+  }%
+}
+
+\pgfpagesuselayout{boxed}
+
+\begin{document}
+    \maketitle
+    \section{Overview of C++ containers}
+    A container is a holder object that stores a collection of other objects (its elements). They are implemented as class templates, which allows great flexibility in the types supported as elements.
+    \bigbreak \noindent
+    The container manages the storage space for its elements and provides member functions to access them, either directly or through iterators (reference objects with similar properites to pointers)
+    \section{Sequence Containers}
+    Sequence containers implement base structures that can be accessed sequentially. The STL containers that are of this type are:
+    \begin{itemize}
+        \item \textbf{array}: Static contiguous array
+        \item \textbf{vector}: Dynamic contiguous array
+        \item \textbf{deque}: double-ended queue
+        \item \textbf{forward\_list}: Singly-linked list
+        \item \textbf{list}: Doubly-linked list
+    \end{itemize}
+    \subsection{std::array}
+    The introduction of array classes from C++11 has offered a better alternative for C-style arrays. The advantages of array class over C-style array are:
+    \begin{enumerate}
+        \item Array classes knows its own size, wheras C-style arrays lack this property. So when passing to functions, we don't need to pass size of Array as a seperate parameter.
+        \item With C-style array ther is more risk of array being decayed into a pointer. Array classes don't decay into pointers.
+        \item Array classes are generally more eficient, light-weight and reliable than C-style arrays.
+    \end{enumerate}
+    The main drawback for using std::array is that it is a statically-sized cotainer, meaning the size of the array is defined once and remains constant throughout the lifetime of the array.
+    \subsubsection*{Operations on array}
+    \begin{itemize}
+        \item \textbf{at()}: This function is used to access the elements of array 
+        \item \textbf{get():} This function is also used to access the elements of array. This function is not the member of array class but overloaded function from class tuple. 
+        \item \textbf{operator[]}: This is similar to C-style arrays. this method is also used to access array elements.
+        \item \textbf{front()} This returns a reference to the first element in the array
+        \item \textbf{back()} This returns a reference to the last element in the array
+        \item \textbf{size()} returns the number of elements in array. This is property that C-style arrays lack.
+        \item \textbf{max\_size()} Returns the maxiumum number fo elements array can hold i.e, the size with which array is declared. 
+        \item \textbf{swap()} swaps element in array with another array
+        \item \textbf{empty()} Determines if array is empty
+    \end{itemize}
+    \subsubsection*{Example:}
+    \begin{cppcode}
+    #include <array> // for at()
+    #include <tuple> // for get()
+    
+    std::array<int,4> arr = {1,2,3,4};
+
+    // Using at()
+    for (uint8_t i = 0; i < 4; ++i) { std::cout << arr.at(i) << " ";}
+
+    // Stuff with get() 
+    int first_element = std::get<0>(arr);
+    std::get<0>(arr) = 0;
+    std::cout << std::get<0>(arr);
+
+    // front() and back()
+    ar.front() = 10;
+    ar.back() = 10;
+      
+    // Using swap()
+    std::array<int, 6> arr2 = {5,6,7,8};
+    ar.swap(arr2);
+
+    // Using empty()
+    if (ar.empty()) { cout << "Empty array!"}
+    \end{cppcode}
+  \subsubsection*{Iterator category}
+  The standard array implementation uses a \textbf{Random Access Iterator}, meaning that it can directly access any element in the container using arithmetic. std::array just uses a raw pointer, which is common with random access iterators. This is a very simple container, so not much work need to go into its iterator.
+  \subsubsection*{Example implementation of std::array}
+  \begin{minted}[linenos=false]{cpp}
+  
+  #ifndef ARRAY_H
+  #define ARRAY_H
+  
+  template <typename T, std::size_t N> 
+  struct array {
+
+  typedef T value_type
+  typedef std::size_t size_type
+
+  typedef T* iterator
+  typedef const T* const_iterator
+  typedef T* std::reverse_iterator<iterator> reverse_iterator
+  typedef const std::reverse_iterator<const_iterator> const_reverse_iterator
+
+  value_type base[N ? N : 1 ];
+  
+  void fill(value_type element) {
+    std::fill_n(begin(),end(), element);
+  }
+  void swap(struct array &rhs) {
+    std::swap_ranges(begin(),end(), rhs.begin());
+  }
+
+  // Element access.
+  value_type& operator[](size_type &index) { return base[index]; }
+  const value_type& operator[](size_type &index) const { return base[index]; }
+  value_type& at(size_type index) { 
+    if (index > N) {
+      throw(std::out_of_range("array::at"));
+    }
+    return base[index];
+  }
+  // Capacity.
+  size_type size() const { return N; }
+  size_type max_size() const { return N; }
+  bool empty() const { return size() == 0; }
+
+  // Iterators.
+  iterator begin() { return std::addressof(base[0]); }
+  const_iterator begin() const { return std::addressof(base[0]); }
+  iterator end() { return std::addressof(base[N]); }
+  const_iterator end() const { return std::addressof(base[N]); }
+  reverse_iterator rbegin() { return std::reverse_iterator<iterator>(end()); }
+  const_reverse_iterator rbegin() const { return std::reverse_iterator<const_iterator>(end()); }
+  reverse_iterator rend() { return std::reverse_iterator<iterator>(begin());}
+  const reverse_iterator rend() const { return std::reverse_iterator<iterator>(begin());}
+
+  };
+template<typename T, typename N>
+  inline bool operator==(const array<T,N> &lhs, const array<T,N> &rhs) {
+    return std::equal(lhs.begin(),lhs.end(),rhs.begin());
+  }
+template<typename Tp, typename std::size_t N>
+inline bool operator!=(const array<Tp,N> &lhs, const array<Tp,N> &rhs) {
+    return !(lhs == rhs);
+}
+template<typename Tp, typename std::size_t N>
+inline bool operator<(const array<Tp, N> &lhs, const array<Tp, N> &rhs) {
+    return std::lexicographical_compare(lhs.begin(),lhs.end(), rhs.begin(),rhs.end());
+}
+template<typename Tp, typename std::size_t N>
+inline bool operator>(const array<Tp, N> &lhs, const array<Tp, N> &rhs) {
+  return (rhs < lhs);
+}
+  #endif
+
+  \end{minted}
+  \nt{
+      This implementation has no constructor/destructor, no assignment operators, no private or protected base members, and has no base class or virtual functions. This allows for \textbf{aggregate initialization}
+      \bigbreak \noindent
+      In C++ and later, aggregate initialization is a way to initalize arrays and aggregate types using brace-enclosed lists. 
+  }
+  \subsection{vector}
+Vectors are sequence containers representing arrays that can change size
+\bigbreak \noindent
+Just like arrays, vectors use contiguous storage locations for their elements, which means that their elements can also be accessed using offsets on regular pointers to its elements, and just as efficiently as in arrays. But unlike arrays, their size can change dynamically, with their storage being handled automatically by the container.
+\bigbreak \noindent
+Internally, vector containers may allocate some extra storage to accommodate for possible growth, and thus the container may have an actual capacity greater than the storage strictly needed to contain its elements (i.e., its size). Libraries can implement different strategies fro growth to balance between memory usage and reallocations, but in any case, reallocations should only happen at logarithmically growing intervals of size so that the insertion of individual elements at the end of the vector can provide with \textit{amortized constant time} complexity
+\bigbreak \noindent
+Therefore, compared to arrays, vectors consume more memory in exchange for the ability to manage storage and grow dynamically in an efficient way.
+\subsubsection{Container Properties}
+\hrule \vspace{3mm}
+\textbf{Sequence} \vspace{1mm} \\ 
+Elements in sequence containers are ordered in a strict linear sequence. Individual elements are accessed by their position in this sequence.
+\bigbreak \noindent
+\textbf{Dynamic array} \vspace{1mm} \\
+Allows direct access to any element in the sequence, even through pointer arithmetics, and provides relatively fast addition/removal of elements at the end of the sequence.
+\bigbreak\noindent
+\textbf{Allocator-aware} \vspace{1mm} \\ 
+The container uses an allocator object to dynamically handle its storage needs.
+\subsubsection{Template parameters}
+\hrule \vspace{3mm}
+\begin{minted}[linenos=false]{cpp}
+typename T
+\end{minted}
+Type of the elements \vspace{1.5mm} \\ 
+Only if T is guaranteed to not throw while moving, implementations can optimize to move elements instead of copying them during reallocations \vspace{1.5mm} \\ 
+Aliased as member type \textbf{vector::value\_type}
+\begin{minted}[linenos=false]{cpp}
+typename Alloc
+\end{minted}
+Type of the allocator object used to define the storage allocation model. By default, the allocator class template is used, which defines the simplest memory allocation model and is value-independent.  \vspace{1.5mm} \\ 
+Aliased as member type \textbf{vector::allocator\_type}
+\subsubsection{Member Types}
+\hrule \vspace{3mm}
+\begin{table}[H]
+\centering
+% \resizebox{0.8\textwidth}{!}{ % Scale to 80% of the text width
+  \begin{tabular}{|l|l|l|}
+\hline
+\textbf{Member Type} & \textbf{Definition} & \textbf{Notes} \\
+\hline
+value\_type & The first template parameter (T) & \\
+\hline
+allocator\_type & The second template parameter (Alloc) & Defaults to: \texttt{allocator<value\_type>} \\
+\hline
+reference & \texttt{value\_type\&} & \\
+\hline
+
+const\_reference & \texttt{const value\_type\&} & \\
+\hline
+pointer & \texttt{allocator\_traits$<$allocator\_type$>$::pointer} & for the default allocator: \texttt{value\_type*} \\
+\hline
+const\_pointer & \texttt{allocator\_traits$<$allocator\_type$>$::const\_pointer} & \parbox{6cm}{for the default allocator: \texttt{const value\_type*}} \\
+\hline
+iterator & a random access iterator to value\_type & convertible to \texttt{const\_iterator} \\ 
+\hline
+const\_iterator & a random access iterator to \texttt{const value\_type} \\
+\hline
+reverse\_iterator & \texttt{reverse\_iterator$<$const\_iterator$>$} \\
+\hline
+const\_reverse\_iterator & \texttt{reverse\_iterator$<$const\_iterator$>$} \\ 
+\hline
+difference\_type & \parbox{6cm}{a signed integral type, identical to: \texttt{iterator\_traits$<$iterator$>$::difference\_type}} & usually the same as \texttt{ptrdiff\_t} \\
+\hline
+size\_type & \parbox{6cm}{an unsigned integral type that can represent any non-negative value of \texttt{difference\_type}} & usually the same as \texttt{size\_t} \\ 
+\hline
+\end{tabular}
+\caption{Description of typedefs}
+\label{tab:member_types}
+\end{table}
+\newpage
+\subsubsection{Member Functions}
+\hrule \vspace{3mm}
+\begin{minipage}{0.5\textwidth}
+\subsubsection*{Iterators:}
+\texttt{begin()}:  Return iterator to beginning
+\bigbreak \noindent
+\texttt{end()}: Return iterator to end
+\bigbreak \noindent 
+\texttt{rbegin()}: Returns a reverse iterator to reverse beginning
+\bigbreak \noindent
+\texttt{rend()}: Returns reverse iterator to reverse end
+\bigbreak \noindent
+\texttt{cbegin()}: Returns const\_iterator to beginning
+\bigbreak \noindent
+\texttt{cend()}: Returns const\_iterator to end
+\bigbreak \noindent
+\texttt{crbegin()}: Returns const\_reverse\_iterator to reverse beginning
+\bigbreak \noindent
+\texttt{crend()}: Returns const\_reverse\_iterator to reverse end
+\bigbreak \noindent
+\subsubsection*{Capacity:} 
+\texttt{size()}: Returns size
+\bigbreak\noindent
+\texttt{max\_size()}: Returns maximum size
+\bigbreak\noindent
+\texttt{resize()}: Change size
+\bigbreak\noindent
+\texttt{capacity()}: Return size of allocated storage capacity
+\bigbreak\noindent
+\texttt{empty()}: Test whether vector is empty
+\bigbreak\noindent
+\texttt{reserve()}: Request a change in capacity
+\bigbreak\noindent
+\texttt{shrink\_to\_fit()}: Shrink to fit
+\bigbreak\noindent
+\end{minipage}
+\hspace{5mm}\begin{minipage}{0.5\textwidth}
+  \subsubsection*{Element access}	
+  \texttt{operator[]}: Access element
+  \bigbreak \noindent
+  \texttt{at()}: Access element
+  \bigbreak \noindent
+  \texttt{front()}: Access first element
+  \bigbreak \noindent
+  \texttt{back()}: Access last element
+  \bigbreak \noindent
+  \texttt{base()}: Access base
+  \bigbreak \noindent
+  \subsubsection*{Modifers}
+  \texttt{assign()}: Assign vector content
+  \bigbreak\noindent
+  \texttt{push\_back()} Add element to end
+  \bigbreak\noindent
+  \texttt{pop\_back()} Delete last element
+  \bigbreak\noindent
+  \texttt{insert()} Insert elements
+  \bigbreak\noindent
+  \texttt{erase()} Erase elements
+  \bigbreak\noindent
+  \texttt{swap()} Swap content
+  \bigbreak\noindent
+  \texttt{clear()} Clear content
+  \bigbreak\noindent 
+  \texttt{emplace()} Construct and insert element
+  \bigbreak\noindent
+  \texttt{emplace\_back()} Construct and insert element at the end
+  \bigbreak\noindent
+  \subsubsection*{Allocator:}
+  \texttt{get\_allocator} Get allocator
+\end{minipage}
+\subsubsection*{Iterator category}
+Like \texttt{std::array}, the standard vector implementation uses a random access iterator. However, instead of using a raw pointer like we did with \texttt{std::array}, we are going to develop our own iterator type.
+\subsubsection{Supported actions for vector iterator}
+\begin{minted}[linenos=false]{cpp}
+*i                  // returns the current value
+*i  = v             // Assign value `v` to the value dererenced.
+++i                 // increments the iterator (returns a reference)
+--i                 // See above
+i++                 // increments the iterator (but returns a reference to the original)
+i--                 // See above
+*i++                // returns the current value and increments the iterator
+*i--                // See above
+
+i += n              // Moves the iterator forward
+i -= n              // Same as last one
+i + n               // Creates a new iterator moved forward from i
+n + i               // Same as last one
+i - n               // Same as last one
+
+i1 - i2             // returns the distance between the iterators.
+
+i[n]                // returns the item n steps forward from this iterator.
+i->m                // Access the member `m` referenced by i
+
+i1 <  i2            // Compare iterators
+i1 >  i2
+i1 <= i2
+i1 >= i2
+i1 == i2
+i1 != i2
+\end{minted}
+\subsubsection{Writing a vector iterator} 
+\begin{minted}[linenos=false]{cpp}
+#ifndef VECTOR_ITERATOR_H
+#define VECTOR_ITERATOR_H
+template <typename vector>
+class vector_iterator {
+public:
+        typedef typename vector::value_type value_type;
+        typedef value_type* pointer;
+        typedef value_type& reference;
+        typedef std::random_access_iterator_tag iterator_category;
+        typedef std::ptrdiff_t difference_type;
+
+public:
+    vector_iterator(pointer ptr = nullptr) : base(ptr) {}
+
+    // Prefix-- 
+    vector_iterator& operator++() {
+        ++base;
+        return *this;
+    }
+    vector_iterator operator++(int) { 
+        vector_iterator iterator = *this;
+        ++(*this);
+        return iterator;
+    }
+
+    // Postfix--
+    vector_iterator& operator--(){ --base; return *this; }
+
+    vector_iterator operator--(int) const { 
+        vector_iterator iterator = *this;
+        --(*this);
+        return iterator;
+    }
+
+    // Index operator.
+    reference operator[](int pos) {
+        return *(base + pos);
+    }
+
+    // Arrow operator.
+    pointer operator->() const {
+        return base;
+    }
+
+    // Dereference operator.
+    reference operator*() const {
+        return *base;
+    }
+
+    // Arithmetic operators.  
+    vector_iterator& operator+=(difference_type n) {
+        base += n;
+        return *this;
+    }
+    vector_iterator& operator-=(difference_type n) {
+        base-= n;
+        return *this;
+    }
+    vector_iterator operator+(difference_type n) const {
+        return vector_iterator(base+n);
+    }
+    const vector_iterator operator-(difference_type n) const {
+        return vector_iterator(base - n);
+    }
+    difference_type operator-(const vector_iterator& rhs) {
+        return base - rhs.base;
+    }
+
+    // rhs objects
+    friend vector_iterator operator+(difference_type n, const vector_iterator& rhs ) {
+        return vector_iterator(rhs.base + n);
+    }
+    friend vector_iterator operator-(difference_type n, const vector_iterator& rhs) {
+        return vector_iterator(rhs.base - n);
+    }
+
+private:
+        pointer base;
+};
+
+template <typename vector>
+inline bool operator==(const vector_iterator<vector>& lhs, const vector_iterator<vector>& rhs) {
+    return (lhs.base == rhs.base);
+}
+template<typename vector>
+inline bool operator!=(const vector_iterator<vector>& lhs, const vector_iterator<vector>& rhs) {
+    return !(lhs.base == rhs.base);
+}
+template<typename vector>
+inline bool operator>(const vector_iterator<vector>& lhs, const vector_iterator<vector>& rhs) {
+    return !(lhs.base > rhs.base);
+}
+template<typename vector>
+inline bool operator<(const vector_iterator<vector>& lhs, const vector_iterator<vector>& rhs) {
+    return !(lhs.base < rhs.base);
+}
+template<typename vector>
+inline bool operator>=(const vector_iterator<vector>& lhs, const vector_iterator<vector>& rhs) {
+    return !(lhs.base >= rhs.base);
+}
+template<typename vector>
+inline bool operator<=(const vector_iterator<vector>& lhs, const vector_iterator<vector>& rhs) {
+    return !(lhs.base <= rhs.base);
+}
+\end{minted}
+There are a few things in the iterator class that are worth mentioning. For starters, \texttt{operator++} (prefix) \texttt{operator--} (prefix), \texttt{operator+=}, \texttt{operator-=} should all return a reference to the current object to allow for \textbf{chaining operatations}. Furthermore, the prefix version of \texttt{operator++}, and \texttt{operator--} returns the value of the object after it was changed. Thus, with prefix you can just return \texttt{*this} as a reference. The postfix version is supposed to return the value \textit{before} the value is changed, so you're forced to create a seperate object to represent that value and return it. So with postfix, you must return by value if you want to preserve the expected meaning.
+\bigbreak \noindent
+Additionally, \texttt{operator+=} and \texttt{operator-=} having parameters that are of the type \texttt{vector\_iterator} are not included in our overloaded operators, since they are invalid operations. Pointers represent locations in memory, and adding them or subtracting them together doesn't make sense.
+\bigbreak \noindent
+Lastly, in our class definition we overloaded \texttt{operator+} and \texttt{operator-} such that the right-hand side of the operator is an integer. However, we also need to include \texttt{operator+} and \texttt{operator-} such that they accept an integer as the left-hand side operand. This is done through friend functions since overloading operators as member functions of a class require an object of that class to reside on the left-hand side of the operator.
+\subsubssection{Supported actions for a random access iterator}
+\subsubsection{Writing our vector class}
+Now that we have written our vector iterator, the next step is to write the actual vector class.
+\begin{minted}[linenos=false]{cpp}
+template <typename Tp>
+class vector {
+public:
+    typedef Tp value_type;
+    typedef size_t size_type;
+    typedef value_type* pointer;
+    typedef const value_type* const_pointer;
+    typedef value_type& reference;
+    typedef const value_type& const_reference;
+    typedef vector_iterator<vector<value_type>> iterator;
+    typedef const vector_iterator<iterator> const_iterator;
+    typedef std::reverse_iterator<iterator> reverse_iterator;
+    typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
+    typedef ptrdiff_t difference_type;
+public:
+    // Constructors.
+    vector(size_type sz = 0) : m_size(0), m_capacity(sz), data(nullptr) {}
+
+    vector(size_type sz, value_type value) : m_size(sz) m_capacity(sz), data = new value_type[sz] {
+        std::fill(data,data+m_size, value);
+    }
+    vector(std::initializer_list<Tp> l) : m_size(l.size()), m_capacity(l.size()) {
+        if (m_capacity != 0) {
+            data = new value_type[m_capacity];
+            std::copy(l.begin(), l.end(), data);
+        } else { data = nullptr; }
+    }
+    vector(const vector& rhs) : m_size(rhs.m_size), m_capacity(rhs.m_capacity) {
+        if (m_capacity != 0) {
+            data = new value_type[m_capacity];
+            std::copy(rhs.data, rhs.data+rhs.m_size, data);
+        } else { data = nullptr; }
+    }
+    vector(vector&& rhs) noexcept : m_size(rhs.m_size), m_capacity(rhs.m_capacity), data(rhs.data) {
+            rhs.m_size = 0;
+            rhs.m_capacity = 0;
+            rhs.data = nullptr;
+    }
+    vector& operator=(const vector& rhs) { 
+        if (this != &rhs) {
+            delete[] data; 
+            m_size = rhs.m_size;
+            m_capacity = rhs.m_capacity;
+            
+            data = new value_type[m_capacity];
+            std::copy(rhs.data, rhs.data+rhs.m_size, data);
+        } 
+        return *this;
+    }
+    vector& operator=(vector&& rhs) noexcept { 
+        if (this != &rhs) {
+            delete[] data;
+            m_size = rhs.m_size;
+            m_capacity = rhs.m_capacity;
+            data = rhs.data;
+
+            rhs.m_size = 0;
+            rhs.m_capacity = 0;
+            rhs.data = nullptr;
+        }
+        return *this;
+    }
+    ~vector() {
+        delete[] data;
+    }
+     
+    // Capacity.
+    size_type size() const { return m_size; }
+    size_type capacity const { return m_capacity; }
+
+private:
+    size_type m_size;
+    size_type m_capacity;
+    pointer data;
+};
+\end{minted}
+\end{document}

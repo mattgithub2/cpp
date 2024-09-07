@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Tp}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Tp\PYGZus{}Deleter}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{default\PYGZus{}delete}\PYG{o}{\PYGZlt{}}\PYG{n}{Tp}\PYG{o}{\PYGZgt{}\PYGZgt{}}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{smart\PYGZus{}ptr}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{  }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{tuple}\PYG{o}{\PYGZlt{}}\PYG{n}{Tp}\PYG{o}{*}\PYG{p}{,}\PYG{n}{Tp\PYGZus{}Deleter}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{tuple\PYGZus{}type}\PYG{p}{;}
+
+\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{  }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{Tp}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{pointer}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{Tp}\PYG{+w}{ }\PYG{n}{element\PYGZus{}type}\PYG{p}{;}
+\PYG{+w}{  }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{Tp\PYGZus{}Deleter}\PYG{+w}{ }\PYG{n}{deleter\PYGZus{}type}\PYG{p}{;}
+
+\PYG{+w}{  }\PYG{p}{...}
+
+\PYG{k}{private}\PYG{o}{:}
+\PYG{n}{tuple\PYGZus{}type}\PYG{+w}{ }\PYG{n}{M\PYGZus{}t}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\end{Verbatim}
