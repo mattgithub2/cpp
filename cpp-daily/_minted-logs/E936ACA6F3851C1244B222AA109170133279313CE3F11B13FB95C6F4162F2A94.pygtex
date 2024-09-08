@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{+w}{  }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{\PYGZus{}\PYGZus{}lambda\PYGZus{}1}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{operator}\PYG{p}{()(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Person}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{lhs}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Person}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{rhs}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{lhs}\PYG{p}{.}\PYG{n}{name}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{rhs}\PYG{p}{.}\PYG{n}{name}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{n}{\PYGZus{}\PYGZus{}lambda\PYGZus{}1}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{delete}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// not default\PYGZhy{}constructible.}
+\PYG{+w}{    }\PYG{n}{\PYGZus{}\PYGZus{}lambda\PYGZus{}1}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{k}{operator}\PYG{o}{=}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{\PYGZus{}\PYGZus{}lambda\PYGZus{}1}\PYG{o}{\PYGZam{}}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{delete}\PYG{+w}{ }\PYG{c+c1}{// not copyable or assignable.}
+
+\PYG{+w}{    }\PYG{k}{using}\PYG{+w}{ }\PYG{n}{\PYGZus{}\PYGZus{}func\PYGZus{}type}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{p}{(}\PYG{o}{*}\PYG{p}{)(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Person}\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Person}\PYG{o}{\PYGZam{}}\PYG{p}{);}
+\PYG{+w}{    }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k}{operator}\PYG{+w}{ }\PYG{n}{\PYGZus{}\PYGZus{}func\PYGZus{}type}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k}{noexcept}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{\PYGZus{}\PYGZus{}invoke}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{  }\PYG{k}{static}\PYG{+w}{ }\PYG{k+kr}{inline}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{\PYGZus{}\PYGZus{}invoke}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Person}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{lhs}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Person}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{rhs}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{lhs}\PYG{p}{.}\PYG{n}{name}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{rhs}\PYG{p}{.}\PYG{n}{name}\PYG{p}{;}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

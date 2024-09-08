@@ -111,7 +111,8 @@ ptr += ptr2;   // Not allowed: adding two pointers
 ptr = ptr + ptr2; // Not allowed: adding a pointer and another pointer
 ptr-=ptr2; // also not allowed
 
-    \end{minted} \noindent
+    \end{minted} 
+  \noindent
 You cannot add two pointers together because it does not make sense in terms of pointer arithmetic. Pointers represent positions in memory, and adding them does not yield a meaningful result.
 \bigbreak \noindent
 Furthermore, subtracting two pointers yields a distance of type \texttt{ptrdiff\_t}
@@ -135,8 +136,6 @@ class x {
 public:
     x* This() { return this; }
 };
-
-    
 \end{minted}
 This gives us a way to get a pointer to an object:
 \begin{minted}[linenos=false]{cpp}
@@ -284,5 +283,162 @@ vector<items> vec{1,2,3,4};
 vec.emplace(1,2.0, 'a');
 \end{minted}
 Now, we can call emplace with the precise amount of data to match our types data members.
+\section{9-7-24}
+\subsection{What happens when you write a lambda expression}
+The standard spells this out quite nicely. It states that the closure type for a \textit{lambda-expression} has a \textit{public inline function call operator} (for a non-generic lambda) or \textit{function call operator template} (for a generic lambda) whose parameters and return type are described by the lambda-expression's \textit{parameter-declaration clause}. and \textit{trailing-return-type} respectively, and whose \textit{template paramter-list} consists of the specified \textit{template-parameter-list}, if any.
+\bigbreak \noindent
+For example, this:
+\begin{minted}[linenos=false]{cpp}
+  [](const Person &lhs, const Person rhs) {
+    return lhs.name < rhs.name;
+  }
+\end{minted}
+Would look something like this:
+\begin{minted}[linenos=false]{cpp}
+struct __lambda_1 {
+  inline bool operator()(const Person &lhs, const Person &rhs) const {
+    return lhs.name < rhs.name;
+  }
+};
+__lambda_1();
+\end{minted}
+Note that this is \textit{some approximation} of what the compiler generates. Additionally, the \textit{call operator} is \texttt{const} by default, so if you want to modify members, you need to write \texttt{mutable}.
+\bigbreak \noindent
+Lambda expressions with an empty \textbf{capture clause} are implicitly converted to \textit{function pointers}. So something like this is valid code:
+\begin{minted}[linenos=false]{cpp}
+  void legacy_call(int(*f)(int)) {
+    std::cout << f(7) << '\n';
+  }
+  int main() {
+    legacy_call([](int i) {
+      return i * i;
+    }) // Prints 49
+  } 
+\end{minted}
+This is also spelled out by the standard. It states that The closure type for a non-generic \textit{lambda-expression} with no \textit{lambda-capture} whose constraints (if any) are satisfied has a conversion function to pointer to function. Here is what that might look like:
+\begin{minted}[linenos=false]{cpp}
+  struct __lambda_1 {
+    inline bool operator()(const Person &lhs, const Person &rhs) {
+      return lhs.name < rhs.name;
+    }
+    __lambda_1() = delete; // not default-constructible.
+    __lambda_1& operator=(const __lambda_1&) = delete // not copyable or assignable.
+
+    using __func_type = bool(*)(const Person&, const Person&);
+    inline operator __func_type() const noexcept {
+    return &__invoke;
+  }
+  private: 
+  static inline bool __invoke(const Person &lhs, const Person &rhs) {
+    return lhs.name < rhs.name;
+  }
+};
+\end{minted}
+\subsection{captures}
+For each entity captured by copy, an unnamed non-static data member is declared in the closure type. The order of these members is unspecified.
+\begin{minted}[linenos=false]{cpp}
+int i = 0;
+int j = 0;
+auto f = [=] {
+  return i == j;
+};
+\end{minted}
+Would look like this:
+\begin{minted}[linenos=false]{cpp}
+struct __lambda {
+  __lambda_2(int i, int j) : __i(i), __j(j) { }
+
+  inline bool operator()() const {
+    return __i == __j;
+  }
+  private:
+    int __i;
+    int __j;
+}
+__lambda_2(i, j);
+\end{minted}
+For each entity captured by reference, the type of the data member will be a referenced type if the entity is a reference to an object, an lvalue reference to the referenced function if the entity is a reference to a function, or the type of the corresponding captured entity otherwise.
+\nt{ A member of an anonymous union shall not be captured by copy.}
+\noindent Here is an example of capture by reference:
+\begin{minted}[linenos=false]{cpp}
+  auto f = [&] {
+    return i == j;
+  }
+  struct __lambda {
+    __lambda_2(int &i, int &j) : __i(i), __j(j) { }
+
+    inline bool operator()() const {
+      return __i == __j;
+    }
+    private:
+    int &__i;
+    int &__j;
+  }
+  __lambda_2(i, j);
+\end{minted}
+
+\subsection{Immediatly invoked lambdas}
+With lambda expressions, if you're not creating them in a function that takes a unary function object. You need to pair it with \texttt{auto} followed by some arbirary name that can be used to invoke the lambda expression. Writing something like this makes very little sense.
+\begin{minted}[linenos=false]{cpp}
+  []() { std::cout << "Hello, World!"; }; // Unused. 
+\end{minted}
+However, it is possible to have create lambda expressions that are immediatly called. They look like this:
+\begin{minted}[linenos=false]{cpp}
+  [] { std::cout << "Hello, World!"; }(); // IIFE
+\end{minted}
+As you can see, placing the double parentheses after the body of the lambda will immediatly call the lamda. Therere it does not need a callable name.
+\bigbreak \noindent
+Now, lets say you default construct some object of type \texttt{Foo} and need to assign it based on the results of some external factor.
+\begin{minted}[linenos=false]{cpp}
+  Foo foo;
+  if (has_database) {
+    foo = get_foo_from_database;
+  }
+  else {
+    foo = get_foo_from_elsewhere;
+  }
+\end{minted}
+Instead of doing it like this, we can do this:
+\begin{minted}[linenos=false]{cpp}
+  Foo foo = [&] {
+  if (has_database) {
+    return get_foo_from_database();
+  }
+  else {
+    return get_foo_from_elsewhere();
+  }();
+}
+\end{minted}
+Now, we are declaring and defining at the same time. Thus, there is no need to worry about if we need foo to be const. Or if foo is even default constructable in the first place. \bigbreak \noindent If we wanted the code to be more readable, we could wrap the lambda in \texttt{std::invoke} instead of double parentheses at the rear.
+\subsection{Generic lambdas}
+\subsubsection*{Lambda support forward references \& perfect forwarding}
+As it turns out, we can write something like this:
+\begin{minted}[linenos=false]{cpp}
+std::vector<std::string> v;
+
+auto f = [&v](auto&& item) {
+  v.push_back(std::forward<decltype(item)>(item));
+};
+\end{minted}
+This is a lambda that takes a universal reference (\texttt{auto\&\& item}) and uses perfect forwarding to insert the item in the back of the container. Note that if push\_back took an lvalue reference, this would not work. Since we are forward is converting \texttt{item} back to a rvalue.
+\subsubsection*{Variadic lambdas}
+lambda also support parameter packs. So we can do something like this:
+\begin{minted}[linenos=false]{cpp}
+  auto f = [](auto&&... args) {
+    (std::cout << ... << args)  // Fold expression from c++17
+  }
+  f(1, "Hello", 1.5);
+\end{minted}
+Note that this is using fold expression. Pre c++17 would require some recursion to get this to work. Thankfully, c++14 made recursive lambdas possible, the trick for recursive lambdas is to pass the lambda to itself.
+\begin{minted}[linenos=false]{cpp}
+  auto print_stuff = [](auto&&... args) {
+    auto print = [] (auto &ff, auto&& head, auto&&... tail) {
+        std::cout << head;
+        if constexpr (sizeof...(tail)) { 
+          std::cout << ", ";
+          ff(ff,std::forward<decltype(tail)>(tail)...);
+        }
+    }; print(print, std::forward<decltype(args)>(args)...); };
+\end{minted}
 
 \end{document}

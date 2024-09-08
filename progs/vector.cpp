@@ -1,6 +1,5 @@
 #include "vector.h"
 #include <iostream>
-#include <array>
 #include <algorithm>
 #include <vector>
 
@@ -39,15 +38,12 @@ const std::vector<int>& f(const std::vector<int> &v) {
     return v;
 }
 
-// const is an exception for what?
+// const is an exception for what? can create lvalue references to r-value if lvalue is const
 int main(int argc, char **argv){
     std::vector<int> vec{1,2,3,4};
     std::vector<int> vec2{5,6,7,8,9};
-    vec.swap(vec2);
-    print_size(vec); print_data(vec);
-    std::cout << "\n\n";
-    print_size(vec2);print_data(vec2);
-    std::cout << "\n\n";
+    auto mff = vec2.erase(vec2.begin() + 1);
+    std::cout << "LOOK HERE:" << *mff;
 
     foo(1,1);
     // vector<int> vec2 = {5,6,7,8};
@@ -221,7 +217,21 @@ int main(int argc, char **argv){
     for (auto it = swap2.rbegin(); it != swap2.rend(); ++it) {
         std::cout << *it << ' ';
     }
+
+    std::cout <<"\n\n\n";
+    vector<int> erase_test = {5,6,7,8,9};
+    auto dat = erase_test.erase(erase_test.begin() + 1);
+     
+
+    vector<foo> foob;
+    auto f = [&foob](auto&& item){
+        foob.push_back(std::forward<decltype(item)>(item));
+    };
     
+    f(foo(1,2));
+    print_data(foob);
+        // print_data(erase_test);
+    // std::cout << *dat;
 
 }
 // Resize:

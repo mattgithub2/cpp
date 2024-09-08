@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{print\PYGZus{}stuff}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{[](}\PYG{k}{auto}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{p}{...}\PYG{+w}{ }\PYG{n}{args}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{print}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{[]}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{ff}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{auto}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{head}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{auto}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{p}{...}\PYG{+w}{ }\PYG{n}{tail}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{      }\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{n}{head}\PYG{p}{;}
+\PYG{+w}{      }\PYG{k}{if}\PYG{+w}{ }\PYG{k}{constexpr}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{sizeof}\PYG{p}{...(}\PYG{n}{tail}\PYG{p}{))}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{std}\PYG{o}{::}\PYG{n}{cout}\PYG{+w}{ }\PYG{o}{\PYGZlt{}\PYGZlt{}}\PYG{+w}{ }\PYG{l+s}{\PYGZdq{}, \PYGZdq{}}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{ff}\PYG{p}{(}\PYG{n}{ff}\PYG{p}{,}\PYG{n}{std}\PYG{o}{::}\PYG{n}{forward}\PYG{o}{\PYGZlt{}}\PYG{k}{decltype}\PYG{p}{(}\PYG{n}{tail}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{tail}\PYG{p}{)...);}
+\PYG{+w}{      }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{  }\PYG{p}{\PYGZcb{};}\PYG{+w}{ }\PYG{n}{print}\PYG{p}{(}\PYG{n}{print}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{forward}\PYG{o}{\PYGZlt{}}\PYG{k}{decltype}\PYG{p}{(}\PYG{n}{args}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{args}\PYG{p}{)...);}\PYG{+w}{ }\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{Foo}\PYG{+w}{ }\PYG{n}{foo}\PYG{p}{;}
+\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{has\PYGZus{}database}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{foo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{get\PYGZus{}foo\PYGZus{}from\PYGZus{}database}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{n}{foo}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{get\PYGZus{}foo\PYGZus{}from\PYGZus{}elsewhere}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

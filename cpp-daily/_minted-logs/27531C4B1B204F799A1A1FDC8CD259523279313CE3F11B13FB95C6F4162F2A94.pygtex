@@ -3,6 +3,4 @@
 \PYG{k}{public}\PYG{o}{:}
 \PYG{+w}{    }\PYG{n}{x}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{This}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{k}{this}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
 \PYG{p}{\PYGZcb{};}
-
-
 \end{Verbatim}

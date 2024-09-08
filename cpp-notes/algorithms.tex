@@ -318,7 +318,28 @@ Random-access iterators are  a refined version of a \textbf{birdirectional\_iter
   \subsubsection*{contiguos iterators (As of C++20)}
   The contiguous iterator concept refines random access iterators by providing a guarantee the denoted elements are stored contiguously in memory.
   
-  
+\section{Naming and common behavior} 
+There are a few common naming patterns that can be seen with STL algorithms.
+\subsection{Counted variants "\_n"}
+Counted variants of algorithms accept the range specified using the start iterator and the number of elements (instead of begin and end). This behaviour can be a convenient alternative when working with input and output ranges, where we often do not have an explicit end iterator.
+\bigbreak \noindent
+\textbf{\textit{Examples:}} \texttt{std::for\_each\_n, std::copy\_n}
+\nt{ 
+  While \texttt{std::search\_n} does follow the naming, it does not follow the same semantics. The \_n here refers to the number of instances of the searched element.
+}
+\subsection{Copy variants ``\_copy''}
+Copy variants of in-place algorithms do not write their output back to the source range. Instead, they ouput the result to one or more output ranges, usually defined by a single iterator denoting the first element to be written to (the number of elements is implied from the source range). The copy behaviour allows these variants to operate on immutable ranges.
+\bigbreak\noindent
+\textbf{\textit{Examples:}} \texttt{std::remove\_copy, std::partial\_sort\_copy}
+\subsection{Predicate variants ``\_if''}
+Predicate variants of algorithms use a predicate to determine a ``match'' instead of comparing against a value. The standard also has one instance of \_if\_not variant that inverts the predicate logic (\textbf{false} is treated as a match.) 
+\bigbreak\noindent
+\textbf{\textit{Examples:}} \texttt{std::find\_if, std::replace\_if}
+\subsection{Restrictions on invocable}
+Many algorithms can be customized using an invocable. However, with a few exceptions, the invocable is not permitted to modify elements of the range or invalidate iterators. On top of that, unless explicitly noted, the algorithms do not guarantee any particular order of invocation.
+\bigbreak \noindent
+These restrictions in practice mean that the passed invocable must be regular. The invocable must return the same result if invoked again with the same arguments. This definition permits accessing a global state such as a cache but does not permit invocables that change their result based on their internal state (such as generators).
+
 \section{Sorting}
 \subsection{sort}
 As the name implies, the \textbf{sort} function sorts a container. Heres an example:

@@ -146,9 +146,26 @@ public:
 
 
     // TODO (Modifiers)
-    iterator erase(iterator pos) {
-         
+    iterator erase(const_iterator&& pos) {
+        if (pos == (end() - 1)) {
+            pop_back();
+            return end();
+        }
+        // Shift the elements left once
+        iterator it = pos;
+        for (; it != end() -1;  ++it) {
+            *(it) = *(it + 1);
+        }
+        --m_size;
+        m_data[m_size].~value_type();
+
+        return pos;
     }
+
+    iterator erase(iterator first, iterator last) {
+
+    }
+
     void push_back(value_type elem) {
         if (m_size == m_capacity) {
             (m_size > 0) ? reserve(m_capacity * 2) : reserve(1);

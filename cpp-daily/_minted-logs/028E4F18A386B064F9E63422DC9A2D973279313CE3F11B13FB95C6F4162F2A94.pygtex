@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{p}{[](}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Person}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{lhs}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{Person}\PYG{+w}{ }\PYG{n}{rhs}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{  }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{lhs}\PYG{p}{.}\PYG{n}{name}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{rhs}\PYG{p}{.}\PYG{n}{name}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
