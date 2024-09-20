@@ -2,10 +2,9 @@
 #define VECTOR_H
 
 #include <memory>
-#include <initializer_list>
-#include <ostream>
+#include <initializer_list> 
 #include "vector_iterator.h"
-
+#include <limits>
 
 template <typename Tp, typename Alloc = std::allocator<Tp>>
 class vector {
@@ -31,15 +30,19 @@ public:
         std::fill(m_data, m_data+m_size, elem);
     }
     vector(std::initializer_list<Tp> l) : m_size(l.size()), m_capacity(l.size()), m_data(new Tp[m_size]){
+        std::printf("called init list ctor\n");
             std::copy(l.begin(), l.end(), m_data);
     }
     vector(const vector<Tp>& rhs) : m_size(rhs.size()), m_capacity(rhs.capacity()), m_data(nullptr){
+        std::printf( "Non-ref ctor called\n");
         if (m_capacity > 0) {
             m_data = new Tp[rhs.m_capacity];
             std::copy(rhs.begin(), rhs.end(), m_data);
         }
     }
+
     vector(vector<int>&& rhs) noexcept : m_size(rhs.m_size), m_capacity(rhs.m_capacity), m_data(rhs.m_data) {
+        std::printf("called move;");
         rhs.m_size = 0;
         rhs.m_capacity = 0;
         rhs.m_data = nullptr;
@@ -76,11 +79,9 @@ public:
     ~vector() { delete[] m_data; }
     // Capacity.
     size_type size() const { return m_size; }
-    size_type max_size() const { return m_size; }
+    size_type max_size() const { return std::numeric_limits<size_t>::max(); }
     size_type capacity() const { return m_capacity; }
     bool empty() { return (m_size == 0); }
-
-
 
     void resize(size_type sz) {
         if (sz > m_size) {
@@ -146,14 +147,14 @@ public:
 
 
     // TODO (Modifiers)
-    iterator erase(const_iterator&& pos) {
+    iterator erase(const_iterator pos) {
         if (pos == (end() - 1)) {
             pop_back();
             return end();
         }
         // Shift the elements left once
         iterator it = pos;
-        for (; it != end() -1;  ++it) {
+        for (; it < end() -1;  ++it) {
             *(it) = *(it + 1);
         }
         --m_size;
@@ -163,7 +164,15 @@ public:
     }
 
     iterator erase(iterator first, iterator last) {
+        if (first == last) { return last; }
 
+        difference_type start_idx = first - begin();
+        difference_type end_idx = last - first;
+
+        for (difference_type i = start_idx; i < end_idx; ++i) {
+            erase(first);
+        }
+        return (last == end()) ? end() : first;
     }
 
     void push_back(value_type elem) {

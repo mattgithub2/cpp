@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023 Gentoo Linux) (preloaded format=pdflatex 2024.8.2)  15 AUG 2024 19:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023 Gentoo Linux) (preloaded format=pdflatex 2024.8.2)  12 SEP 2024 21:31
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1002,10 +1002,27 @@ File: pppdftex.def 2024/01/21 v0.5y Pdfpages driver for pdfTeX (AM)
 Package: transparent 2022-10-27 v1.5 Transparency with color stacks
  (/usr/share/texmf-dist/tex/latex/transparent/transparent-nometadata.sty
 Package: transparent-nometadata 2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)
-)) (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
+)) (/usr/share/texmf-dist/tex/latex/svg/svg.sty
+Package: svg 2020/11/26 v2.02k (include SVG pictures)
+ (/usr/share/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
+ (/usr/share/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
+ (/usr/share/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2023/07/07 v3.41 KOMA-Script package (using LaTeX hooks)
+ (/usr/share/texmf-dist/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2023/07/07 v3.41 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line 368.
+)
+\c@svg@param@lastpage=\count398
+\svg@box=\box103
+\c@svg@param@currpage=\count399
+) (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip177
-\multirow@cntb=\count398
+\multirow@cntb=\count400
 \multirow@dima=\skip178
 \bigstrutjot=\dimen345
 ) (/usr/share/texmf-dist/tex/latex/tools/dcolumn.sty
@@ -1017,21 +1034,21 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 \t@pgfplots@tokb=\toks57
 \t@pgfplots@tokc=\toks58
 \pgfplots@tmpa=\dimen346
-\c@pgfplots@coordindex=\count399
-\c@pgfplots@scanlineindex=\count400
- (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
-(/usr/share/texmf-site/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+\c@pgfplots@coordindex=\count401
+\c@pgfplots@scanlineindex=\count402
+
+(/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/share/texmf-site/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
 Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgf@toka=\toks59
 \t@pgf@tokb=\toks60
 \t@pgf@tokc=\toks61
 (/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count401
+\c@pgfplotsarray@tmp=\count403
 ) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count402
+\c@pgfplotstable@counta=\count404
 \t@pgfplotstable@a=\toks62
 ) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count403
+\c@pgfplotslibrarysurf@no=\count405
  (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
 (/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/share/texmf-site/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
 \pgfdecoratedcompleteddistance=\dimen347
@@ -1039,13 +1056,13 @@ Package pgfplots: loading complementary utilities for your pgf version...
 \pgfdecoratedinputsegmentcompleteddistance=\dimen349
 \pgfdecoratedinputsegmentremainingdistance=\dimen350
 \pgf@decorate@distancetomove=\dimen351
-\pgf@decorate@repeatstate=\count404
+\pgf@decorate@repeatstate=\count406
 \pgfdecorationsegmentamplitude=\dimen352
 \pgfdecorationsegmentlength=\dimen353
 )
-\tikz@lib@dec@box=\box103
+\tikz@lib@dec@box=\box104
 ) (/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/share/texmf-site/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/share/texmf-site/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count405
+\pgfplots@numplots=\count407
 \pgfplots@xmin@reg=\dimen354
 \pgfplots@xmax@reg=\dimen355
 \pgfplots@ymin@reg=\dimen356
@@ -1069,39 +1086,38 @@ File: tikzlibraryshapes.geometric.code.tex 2024/02/09 v3.1.10 (3.1.10)
  (/usr/share/texmf-site/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2024/02/09 v3.1.10 (3.1.10)
 ))
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 67.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 67.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 68.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 68.
  (/usr/share/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box104
-\sift@deathcycles=\count406
+\@vwid@box=\box105
+\sift@deathcycles=\count408
 \@vwid@loff=\dimen364
 \@vwid@roff=\dimen365
 ) (/usr/share/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
-\c@tracingmulticols=\count407
-\mult@box=\box105
+\c@tracingmulticols=\count409
+\mult@box=\box106
 \multicol@leftmargin=\dimen366
-\c@unbalance=\count408
-\c@collectmore=\count409
-\doublecol@number=\count410
-\multicoltolerance=\count411
-\multicolpretolerance=\count412
+\c@unbalance=\count410
+\c@collectmore=\count411
+\doublecol@number=\count412
+\multicoltolerance=\count413
+\multicolpretolerance=\count414
 \full@width=\dimen367
 \page@free=\dimen368
 \premulticols=\dimen369
 \postmulticols=\dimen370
 \multicolsep=\skip179
 \multicolbaselineskip=\skip180
-\partial@page=\box106
-\last@line=\box107
-\mc@boxedresult=\box108
+\partial@page=\box107
+\last@line=\box108
+\mc@boxedresult=\box109
 \maxbalancingoverflow=\dimen371
-\mult@rightbox=\box109
-\mult@grightbox=\box110
-\mult@firstbox=\box111
-\mult@gfirstbox=\box112
-\@tempa=\box113
+\mult@rightbox=\box110
+\mult@grightbox=\box111
+\mult@firstbox=\box112
+\mult@gfirstbox=\box113
 \@tempa=\box114
 \@tempa=\box115
 \@tempa=\box116
@@ -1137,15 +1153,16 @@ Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
 \@tempa=\box146
 \@tempa=\box147
 \@tempa=\box148
-\c@minrows=\count413
-\c@columnbadness=\count414
-\c@finalcolumnbadness=\count415
+\@tempa=\box149
+\c@minrows=\count415
+\c@columnbadness=\count416
+\c@finalcolumnbadness=\count417
 \last@try=\dimen372
 \multicolovershoot=\dimen373
 \multicolundershoot=\dimen374
-\mult@nat@firstbox=\box149
-\colbreak@box=\box150
-\mc@col@check@num=\count416
+\mult@nat@firstbox=\box150
+\colbreak@box=\box151
+\mc@col@check@num=\count418
 ) (/usr/share/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
  (/usr/share/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
@@ -1154,11 +1171,11 @@ File: tikzlibrarymatrix.code.tex 2024/02/09 v3.1.10 (3.1.10)
 File: tikzlibraryquotes.code.tex 2024/02/09 v3.1.10 (3.1.10)
 ))) (/usr/share/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count417
+\c@AlgoLine=\count419
 \algocf@hangindent=\skip181
  (/usr/share/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count418
+\c@checkoddpage=\count420
 ) (/usr/share/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/usr/share/texmf-dist/tex/latex/relsize/relsize.sty
@@ -1179,26 +1196,26 @@ Package: relsize 2013/03/29 ver 4.1
 \interspacealgoruled=\dimen379
 \interspacetitleboxruled=\dimen380
 \algocf@ruledwidth=\skip190
-\algocf@inoutbox=\box151
-\algocf@inputbox=\box152
+\algocf@inoutbox=\box152
+\algocf@inputbox=\box153
 \AlCapSkip=\skip191
 \AlCapHSkip=\skip192
 \algoskipindent=\skip193
-\algocf@nlbox=\box153
-\algocf@hangingbox=\box154
-\algocf@untilbox=\box155
+\algocf@nlbox=\box154
+\algocf@hangingbox=\box155
+\algocf@untilbox=\box156
 \algocf@skipuntil=\skip194
-\algocf@capbox=\box156
+\algocf@capbox=\box157
 \algocf@lcaptionbox=\skip195
 \algoheightruledefault=\skip196
 \algoheightrule=\skip197
 \algotitleheightruledefault=\skip198
 \algotitleheightrule=\skip199
-\c@algocfline=\count419
-\c@algocfproc=\count420
-\c@algocf=\count421
-\algocf@algoframe=\box157
-\algocf@algobox=\box158
+\c@algocfline=\count421
+\c@algocfproc=\count422
+\c@algocf=\count423
+\algocf@algoframe=\box158
+\algocf@algobox=\box159
 ) (/usr/share/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write6
  Excluding comment 'comment') (/usr/share/texmf-dist/tex/latex/xifthen/xifthen.sty
@@ -1211,17 +1228,17 @@ Package: longtable 2023-11-01 v4.19 Multi-page Table package (DPC)
 \LTright=\skip257
 \LTpre=\skip258
 \LTpost=\skip259
-\LTchunksize=\count422
+\LTchunksize=\count424
 \LTcapwidth=\dimen381
-\LT@head=\box159
-\LT@firsthead=\box160
-\LT@foot=\box161
-\LT@lastfoot=\box162
-\LT@gbox=\box163
-\LT@cols=\count423
-\LT@rows=\count424
-\c@LT@tables=\count425
-\c@LT@chunks=\count426
+\LT@head=\box160
+\LT@firsthead=\box161
+\LT@foot=\box162
+\LT@lastfoot=\box163
+\LT@gbox=\box164
+\LT@cols=\count425
+\LT@rows=\count426
+\c@LT@tables=\count427
+\c@LT@chunks=\count428
 \LT@p@ftn=\toks63
 ) (/usr/share/texmf-dist/tex/latex/tikzsymbols/tikzsymbols.sty
 Package: tikzsymbols 2021/12/14 v4.12a Some symbols created using tikz and LaTeX3.
@@ -1234,117 +1251,117 @@ File: pgflibraryarrows.code.tex 2024/02/09 v3.1.10 (3.1.10)
 File: tikzlibrarytrees.code.tex 2024/02/09 v3.1.10 (3.1.10)
 )
 \l__tikzsymbols_Moai_thickness_dim=\dimen383
-\l__tikzsymbols_Kochtopf_nr_arguments_int=\count427
-\l__tikzsymbols_Bratpfanne_nr_arguments_int=\count428
-\l__tikzsymbols_Schneebesen_nr_arguments_int=\count429
-\l__tikzsymbols_Sieb_nr_arguments_int=\count430
-\l__tikzsymbols_Purierstab_nr_arguments_int=\count431
-\l__tikzsymbols_Dreizack_nr_arguments_int=\count432
-\l__tikzsymbols_Backblech_nr_arguments_int=\count433
-\l__tikzsymbols_Ofen_nr_arguments_int=\count434
-\l__tikzsymbols_Pfanne_nr_arguments_int=\count435
-\l__tikzsymbols_Herd_nr_arguments_int=\count436
-\l__tikzsymbols_Saftpresse_nr_arguments_int=\count437
-\l__tikzsymbols_Schussel_nr_arguments_int=\count438
-\l__tikzsymbols_Schaler_nr_arguments_int=\count439
-\l__tikzsymbols_Reibe_nr_arguments_int=\count440
-\l__tikzsymbols_Flasche_nr_arguments_int=\count441
-\l__tikzsymbols_Nudelholz_nr_arguments_int=\count442
-\l__tikzsymbols_Knoblauchpresse_nr_arguments_int=\count443
-\l__tikzsymbols_Sadey_nr_arguments_int=\count444
-\l__tikzsymbols_dSadey_nr_arguments_int=\count445
-\l__tikzsymbols_Changey_nr_arguments_int=\count446
-\l__tikzsymbols_dChangey_nr_arguments_int=\count447
-\l__tikzsymbols_cChangey_nr_arguments_int=\count448
-\l__tikzsymbols_dcChangey_nr_arguments_int=\count449
-\l__tikzsymbols_Annoey_nr_arguments_int=\count450
-\l__tikzsymbols_dAnnoey_nr_arguments_int=\count451
-\l__tikzsymbols_Smiley_nr_arguments_int=\count452
-\l__tikzsymbols_dSmiley_nr_arguments_int=\count453
-\l__tikzsymbols_Laughey_nr_arguments_int=\count454
-\l__tikzsymbols_dLaughey_nr_arguments_int=\count455
-\l__tikzsymbols_Neutrey_nr_arguments_int=\count456
-\l__tikzsymbols_dNeutrey_nr_arguments_int=\count457
-\l__tikzsymbols_Winkey_nr_arguments_int=\count458
-\l__tikzsymbols_oldWinkey_nr_arguments_int=\count459
-\l__tikzsymbols_dWinkey_nr_arguments_int=\count460
-\l__tikzsymbols_olddWinkey_nr_arguments_int=\count461
-\l__tikzsymbols_Sey_nr_arguments_int=\count462
-\l__tikzsymbols_dSey_nr_arguments_int=\count463
-\l__tikzsymbols_Xey_nr_arguments_int=\count464
-\l__tikzsymbols_dXey_nr_arguments_int=\count465
-\l__tikzsymbols_Innocey_nr_arguments_int=\count466
-\l__tikzsymbols_wInnocey_nr_arguments_int=\count467
-\l__tikzsymbols_dInnocey_nr_arguments_int=\count468
-\l__tikzsymbols_Cooley_nr_arguments_int=\count469
-\l__tikzsymbols_dCooley_nr_arguments_int=\count470
-\l__tikzsymbols_Tongey_nr_arguments_int=\count471
-\l__tikzsymbols_dTongey_nr_arguments_int=\count472
-\l__tikzsymbols_Nursey_nr_arguments_int=\count473
-\l__tikzsymbols_dNursey_nr_arguments_int=\count474
-\l__tikzsymbols_Vomey_nr_arguments_int=\count475
-\l__tikzsymbols_dVomey_nr_arguments_int=\count476
-\l__tikzsymbols_Walley_nr_arguments_int=\count477
-\l__tikzsymbols_rWalley_nr_arguments_int=\count478
-\l__tikzsymbols_dWalley_nr_arguments_int=\count479
-\l__tikzsymbols_drWalley_nr_arguments_int=\count480
-\l__tikzsymbols_Cat_nr_arguments_int=\count481
-\l__tikzsymbols_SchrodingersCat_nr_arguments_int=\count482
-\l__tikzsymbols_Ninja_nr_arguments_int=\count483
-\l__tikzsymbols_dNinja_nr_arguments_int=\count484
-\l__tikzsymbols_Sleepey_nr_arguments_int=\count485
-\l__tikzsymbols_dSleepey_nr_arguments_int=\count486
-\l__tikzsymbols_Maskey_nr_arguments_int=\count487
-\l__tikzsymbols_NiceReapey_nr_arguments_int=\count488
-\l__tikzsymbols_Strichmaxerl_nr_arguments_int=\count489
-\l__tikzsymbols_Person_nr_arguments_int=\count490
-\l__tikzsymbols_Heart_nr_arguments_int=\count491
-\l__tikzsymbols_dHeart_nr_arguments_int=\count492
-\l__tikzsymbols_HeartBroken_nr_arguments_int=\count493
-\l__tikzsymbols_Candle_nr_arguments_int=\count494
-\l__tikzsymbols_Fire_nr_arguments_int=\count495
-\l__tikzsymbols_Coffeecup_nr_arguments_int=\count496
-\l__tikzsymbols_Chair_nr_arguments_int=\count497
-\l__tikzsymbols_Bed_nr_arguments_int=\count498
-\l__tikzsymbols_Tribar_nr_arguments_int=\count499
-\l__tikzsymbols_Moai_nr_arguments_int=\count500
-\l__tikzsymbols_Snowman_nr_arguments_int=\count501
-\l__tikzsymbols_BasicTree_nr_arguments_int=\count502
-\l__tikzsymbols_WorstTree_nr_arguments_int=\count503
-\l__tikzsymbols_Springtree_nr_arguments_int=\count504
-\l__tikzsymbols_Summertree_nr_arguments_int=\count505
-\l__tikzsymbols_Autumntree_nr_arguments_int=\count506
-\l__tikzsymbols_Wintertree_nr_arguments_int=\count507
+\l__tikzsymbols_Kochtopf_nr_arguments_int=\count429
+\l__tikzsymbols_Bratpfanne_nr_arguments_int=\count430
+\l__tikzsymbols_Schneebesen_nr_arguments_int=\count431
+\l__tikzsymbols_Sieb_nr_arguments_int=\count432
+\l__tikzsymbols_Purierstab_nr_arguments_int=\count433
+\l__tikzsymbols_Dreizack_nr_arguments_int=\count434
+\l__tikzsymbols_Backblech_nr_arguments_int=\count435
+\l__tikzsymbols_Ofen_nr_arguments_int=\count436
+\l__tikzsymbols_Pfanne_nr_arguments_int=\count437
+\l__tikzsymbols_Herd_nr_arguments_int=\count438
+\l__tikzsymbols_Saftpresse_nr_arguments_int=\count439
+\l__tikzsymbols_Schussel_nr_arguments_int=\count440
+\l__tikzsymbols_Schaler_nr_arguments_int=\count441
+\l__tikzsymbols_Reibe_nr_arguments_int=\count442
+\l__tikzsymbols_Flasche_nr_arguments_int=\count443
+\l__tikzsymbols_Nudelholz_nr_arguments_int=\count444
+\l__tikzsymbols_Knoblauchpresse_nr_arguments_int=\count445
+\l__tikzsymbols_Sadey_nr_arguments_int=\count446
+\l__tikzsymbols_dSadey_nr_arguments_int=\count447
+\l__tikzsymbols_Changey_nr_arguments_int=\count448
+\l__tikzsymbols_dChangey_nr_arguments_int=\count449
+\l__tikzsymbols_cChangey_nr_arguments_int=\count450
+\l__tikzsymbols_dcChangey_nr_arguments_int=\count451
+\l__tikzsymbols_Annoey_nr_arguments_int=\count452
+\l__tikzsymbols_dAnnoey_nr_arguments_int=\count453
+\l__tikzsymbols_Smiley_nr_arguments_int=\count454
+\l__tikzsymbols_dSmiley_nr_arguments_int=\count455
+\l__tikzsymbols_Laughey_nr_arguments_int=\count456
+\l__tikzsymbols_dLaughey_nr_arguments_int=\count457
+\l__tikzsymbols_Neutrey_nr_arguments_int=\count458
+\l__tikzsymbols_dNeutrey_nr_arguments_int=\count459
+\l__tikzsymbols_Winkey_nr_arguments_int=\count460
+\l__tikzsymbols_oldWinkey_nr_arguments_int=\count461
+\l__tikzsymbols_dWinkey_nr_arguments_int=\count462
+\l__tikzsymbols_olddWinkey_nr_arguments_int=\count463
+\l__tikzsymbols_Sey_nr_arguments_int=\count464
+\l__tikzsymbols_dSey_nr_arguments_int=\count465
+\l__tikzsymbols_Xey_nr_arguments_int=\count466
+\l__tikzsymbols_dXey_nr_arguments_int=\count467
+\l__tikzsymbols_Innocey_nr_arguments_int=\count468
+\l__tikzsymbols_wInnocey_nr_arguments_int=\count469
+\l__tikzsymbols_dInnocey_nr_arguments_int=\count470
+\l__tikzsymbols_Cooley_nr_arguments_int=\count471
+\l__tikzsymbols_dCooley_nr_arguments_int=\count472
+\l__tikzsymbols_Tongey_nr_arguments_int=\count473
+\l__tikzsymbols_dTongey_nr_arguments_int=\count474
+\l__tikzsymbols_Nursey_nr_arguments_int=\count475
+\l__tikzsymbols_dNursey_nr_arguments_int=\count476
+\l__tikzsymbols_Vomey_nr_arguments_int=\count477
+\l__tikzsymbols_dVomey_nr_arguments_int=\count478
+\l__tikzsymbols_Walley_nr_arguments_int=\count479
+\l__tikzsymbols_rWalley_nr_arguments_int=\count480
+\l__tikzsymbols_dWalley_nr_arguments_int=\count481
+\l__tikzsymbols_drWalley_nr_arguments_int=\count482
+\l__tikzsymbols_Cat_nr_arguments_int=\count483
+\l__tikzsymbols_SchrodingersCat_nr_arguments_int=\count484
+\l__tikzsymbols_Ninja_nr_arguments_int=\count485
+\l__tikzsymbols_dNinja_nr_arguments_int=\count486
+\l__tikzsymbols_Sleepey_nr_arguments_int=\count487
+\l__tikzsymbols_dSleepey_nr_arguments_int=\count488
+\l__tikzsymbols_Maskey_nr_arguments_int=\count489
+\l__tikzsymbols_NiceReapey_nr_arguments_int=\count490
+\l__tikzsymbols_Strichmaxerl_nr_arguments_int=\count491
+\l__tikzsymbols_Person_nr_arguments_int=\count492
+\l__tikzsymbols_Heart_nr_arguments_int=\count493
+\l__tikzsymbols_dHeart_nr_arguments_int=\count494
+\l__tikzsymbols_HeartBroken_nr_arguments_int=\count495
+\l__tikzsymbols_Candle_nr_arguments_int=\count496
+\l__tikzsymbols_Fire_nr_arguments_int=\count497
+\l__tikzsymbols_Coffeecup_nr_arguments_int=\count498
+\l__tikzsymbols_Chair_nr_arguments_int=\count499
+\l__tikzsymbols_Bed_nr_arguments_int=\count500
+\l__tikzsymbols_Tribar_nr_arguments_int=\count501
+\l__tikzsymbols_Moai_nr_arguments_int=\count502
+\l__tikzsymbols_Snowman_nr_arguments_int=\count503
+\l__tikzsymbols_BasicTree_nr_arguments_int=\count504
+\l__tikzsymbols_WorstTree_nr_arguments_int=\count505
+\l__tikzsymbols_Springtree_nr_arguments_int=\count506
+\l__tikzsymbols_Summertree_nr_arguments_int=\count507
+\l__tikzsymbols_Autumntree_nr_arguments_int=\count508
+\l__tikzsymbols_Wintertree_nr_arguments_int=\count509
 ) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbminted.code.tex
 Library (tcolorbox): 'tcbminted.code.tex' version '6.2.0'
 )
-\c@tcb@cnt@Theorem=\count508
-\c@tcb@cnt@theorem=\count509
-\c@tcb@cnt@Corollary=\count510
-\c@tcb@cnt@corollary=\count511
-\c@tcb@cnt@Lenma=\count512
-\c@tcb@cnt@lenma=\count513
-\c@tcb@cnt@Prop=\count514
-\c@tcb@cnt@prop=\count515
-\c@tcb@cnt@claim=\count516
-\c@tcb@cnt@Exercise=\count517
-\c@tcb@cnt@exercise=\count518
-\c@tcb@cnt@Example=\count519
-\c@tcb@cnt@example=\count520
-\c@tcb@cnt@Definition=\count521
-\c@tcb@cnt@definition=\count522
-\c@tcb@cnt@question=\count523
-\c@tcb@cnt@qstion=\count524
-\c@tcb@cnt@wconc=\count525
+\c@tcb@cnt@Theorem=\count510
+\c@tcb@cnt@theorem=\count511
+\c@tcb@cnt@Corollary=\count512
+\c@tcb@cnt@corollary=\count513
+\c@tcb@cnt@Lenma=\count514
+\c@tcb@cnt@lenma=\count515
+\c@tcb@cnt@Prop=\count516
+\c@tcb@cnt@prop=\count517
+\c@tcb@cnt@claim=\count518
+\c@tcb@cnt@Exercise=\count519
+\c@tcb@cnt@exercise=\count520
+\c@tcb@cnt@Example=\count521
+\c@tcb@cnt@example=\count522
+\c@tcb@cnt@Definition=\count523
+\c@tcb@cnt@definition=\count524
+\c@tcb@cnt@question=\count525
+\c@tcb@cnt@qstion=\count526
+\c@tcb@cnt@wconc=\count527
  (/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2024/02/09 v3.1.10 (3.1.10)
 ) (/usr/share/texmf-dist/tex/latex/pgf-blur/tikzlibraryshadows.blur.code.tex  v1.02, 2012/12/09 (/usr/share/texmf-site/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshadows.code.tex
 File: tikzlibraryshadows.code.tex 2024/02/09 v3.1.10 (3.1.10)
 )
-\pgfbs@fading@count=\count526
+\pgfbs@fading@count=\count528
 )
-\c@mylabelcounter=\count527
-\diffdbox=\box164
+\c@mylabelcounter=\count529
+\diffdbox=\box165
  (/usr/share/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -1380,9 +1397,9 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
-\c@question=\count528
+\c@question=\count530
 ) (/home/matt/latex/template/macros.tex)
-\pgfpages@box@1=\box165
+\pgfpages@box@1=\box166
 runsystem(command -v pygmentize && touch containers.aex)...executed.
 
 runsystem(rm containers.aex)...executed.
@@ -1413,16 +1430,16 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
 LaTeX Font Info:    ... okay on input line 43.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count529
+\scratchcounter=\count531
 \scratchdimen=\dimen384
-\scratchbox=\box166
-\nofMPsegments=\count530
-\nofMParguments=\count531
+\scratchbox=\box167
+\nofMPsegments=\count532
+\nofMParguments=\count533
 \everyMPshowfont=\toks64
-\MPscratchCnt=\count532
+\MPscratchCnt=\count534
 \MPscratchDim=\dimen385
-\MPnumerator=\count533
-\makeMPintoPDFobject=\count534
+\MPnumerator=\count535
+\makeMPintoPDFobject=\count536
 \everyMPtoPDFconversion=\toks65
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1430,7 +1447,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count535
+\c@lstlisting=\count537
  (/usr/share/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks66
@@ -1597,7 +1614,7 @@ File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [6])
 \openout3 = `containers.pyg'.
 
- (./_minted-containers/CA9B844CAC6AE9BCB0D12B9ECA3B47D89F8B6BF10C3C6FBC392A76A34E75FB44.pygtex [7] [8])
+ (./_minted-containers/B6FFA032D4B74543B02141C4CF91A6FF9F8B6BF10C3C6FBC392A76A34E75FB44.pygtex [7] [8])
 ./containers.tex:464: Undefined control sequence.
 l.464 \subsubssection
                      {Supported actions for a random access iterator}
@@ -1609,7 +1626,34 @@ and I'll forget about whatever was undefined.
 
 \openout3 = `containers.pyg'.
 
-(./_minted-containers/FB83CDACA9838A41A1C08C1CEFB25CBE9F8B6BF10C3C6FBC392A76A34E75FB44.pygtex [9] [10]) [11] [12] (./containers.aux)
+(./_minted-containers/314CD8F9DAFAB3BEA865EA27E292D60F9F8B6BF10C3C6FBC392A76A34E75FB44.pygtex)
+\openout3 = `containers.pyg'.
+
+ (./_minted-containers/58FC60223ECF98C6AA539098341758609F8B6BF10C3C6FBC392A76A34E75FB44.pygtex)
+\openout3 = `containers.pyg'.
+
+ (./_minted-containers/92116BEE1626FA053D8710357A369BEE9F8B6BF10C3C6FBC392A76A34E75FB44.pygtex [9])
+\openout3 = `containers.pyg'.
+
+ (./_minted-containers/6BD4F6F2F5129172C9F8C7B964B28DF59F8B6BF10C3C6FBC392A76A34E75FB44.pygtex [10])
+./containers.tex:549: Undefined control sequence.
+l.549 ... operator overload that takes an \textttt
+                                                  {std::initalizer\_list}, t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\openout3 = `containers.pyg'.
+
+(./_minted-containers/85172603E4868C5E4159B3A498E1BC7C9F8B6BF10C3C6FBC392A76A34E75FB44.pygtex)
+\openout3 = `containers.pyg'.
+
+ (./_minted-containers/6AECD9EB351D741EF55D582C38525EE99F8B6BF10C3C6FBC392A76A34E75FB44.pygtex)
+\openout3 = `containers.pyg'.
+
+ (./_minted-containers/33458891EEE7D734518EA11FB7291E3D9F8B6BF10C3C6FBC392A76A34E75FB44.pygtex) [11] [12] (./containers.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1618,15 +1662,15 @@ runsystem(rm containers.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 51515 strings out of 476182
- 1191339 string characters out of 5796233
- 1993975 words of memory out of 5000000
- 72559 multiletter control sequences out of 15000+600000
+ 52348 strings out of 476182
+ 1211965 string characters out of 5796233
+ 1984975 words of memory out of 5000000
+ 73357 multiletter control sequences out of 15000+600000
  616768 words of font info for 89 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  106i,11n,110p,792b,1738s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on containers.pdf (12 pages, 272066 bytes).
+Output written on containers.pdf (12 pages, 275779 bytes).
 PDF statistics:
  241 PDF objects out of 1000 (max. 8388607)
  173 compressed objects within 2 object streams

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023 Gentoo Linux) (preloaded format=pdflatex 2024.8.2)  13 SEP 2024 14:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023 Gentoo Linux) (preloaded format=pdflatex 2024.8.2)  17 SEP 2024 11:39
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**logs.tex
-(./logs.tex
+**numerics.tex
+(./numerics.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texmf-dist/tex/latex/base/report.cls
@@ -120,10 +120,10 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )) (/usr/share/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
-runsystem(uname -s > "logs.w18")...executed.
+runsystem(uname -s > "numerics.w18")...executed.
 
- (./logs.w18)
-runsystem(rm -- "logs.w18")...executed.
+ (./numerics.w18)
+runsystem(rm -- "numerics.w18")...executed.
 
 ) (/usr/share/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texmf-dist/tex/generic/xstring/xstring.tex
 \xs_counta=\count290
@@ -153,7 +153,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@every@listing=\toks21
 \c@listing=\count295
 )
-runsystem(mkdir -p _minted-logs)...executed.
+runsystem(mkdir -p _minted-numerics)...executed.
 
  (/usr/share/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
@@ -1400,15 +1400,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 \c@question=\count530
 ) (/home/matt/latex/template/macros.tex)
 \pgfpages@box@1=\box166
-runsystem(command -v pygmentize && touch logs.aex)...executed.
+runsystem(command -v pygmentize && touch numerics.aex)...executed.
 
-runsystem(rm logs.aex)...executed.
+runsystem(rm numerics.aex)...executed.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 37.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./logs.aux)
-\openout1 = `logs.aux'.
+) (./numerics.aux)
+\openout1 = `numerics.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
 LaTeX Font Info:    ... okay on input line 37.
@@ -1532,173 +1532,70 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/default.pygstyle) (./_minted-logs/6444B386C57E43CD5499166C0E2C61BE8C0A947C756FE7819181504314875964.pygtex
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 1.
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 39.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-))
-\openout3 = `logs.pyg'.
+)
+\openout3 = `numerics.pyg'.
 
- (./_minted-logs/C9516A827F406D347F00F2B449B4E2938C0A947C756FE7819181504314875964.pygtex
+ (./_minted-numerics/default.pygstyle) (./_minted-numerics/F94138C1698F8A53E2BA6592156158CF6854BC3AB30903C2B89755D7F68A3F66.pygtex
 LaTeX Font Info:    Font shape `OT1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/lmtt/b/n' tried instead on input line 2.
 )
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/F79AB8927BCEFC11AD82D84B42FEC1E98C0A947C756FE7819181504314875964.pygtex)
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 66.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 53.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-\openout3 = `logs.pyg'.
+\openout3 = `numerics.pyg'.
 
- (./_minted-logs/A2CB5C133F34E38D1C06A836A352493F8C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
+ (./_minted-numerics/EBCD1D85FBF0B425219E9A5045E576EB6854BC3AB30903C2B89755D7F68A3F66.pygtex)
+\openout3 = `numerics.pyg'.
 
- (./_minted-logs/94774831613B28656398BE86FD48C07F8C0A947C756FE7819181504314875964.pygtex [1
+ (./_minted-numerics/8D92863AB699D5C49B3667CCFFCB180A6854BC3AB30903C2B89755D7F68A3F66.pygtex)
+\openout3 = `numerics.pyg'.
+
+ (./_minted-numerics/1A6BBB4D2FA32EE8B5C841FBD72EF6C16854BC3AB30903C2B89755D7F68A3F66.pygtex)
+\openout3 = `numerics.pyg'.
+
+ (./_minted-numerics/C798A1A62C5B0F5D6C443063A8488E7C6854BC3AB30903C2B89755D7F68A3F66.pygtex [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}])
-\openout3 = `logs.pyg'.
+\openout3 = `numerics.pyg'.
 
- (./_minted-logs/4DEDC703F18EF0AD4C3DC8B686CCF0408C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
+ (./_minted-numerics/35F8336A1AE9715EA63C2CFC1027F1A46854BC3AB30903C2B89755D7F68A3F66.pygtex)
+\openout3 = `numerics.pyg'.
 
- (./_minted-logs/4C47CEB9B0E83F56C67BB9C958B7E78D8C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/3D1C3C3343E8711FA053AE35C858CB668C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/3625F4331BCA17AD3C2B589979F8E3C48C0A947C756FE7819181504314875964.pygtex)
-LaTeX Font Info:    Font shape `OT1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/lmtt/b/n' tried instead on input line 132.
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/27531C4B1B204F799A1A1FDC8CD259528C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/C88A5DC8AFBD81D9833AB80274B947FD8C0A947C756FE7819181504314875964.pygtex)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 148.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 148.
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/2A011CE82B3264CBF329CBEFD07922D7B8C1CCCB06C173BF52586678E6017F77.pygtex [2
+ (./_minted-numerics/F53A2850CCD2DBA46B3E6643487C749D6854BC3AB30903C2B89755D7F68A3F66.pygtex) [2
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.1 ...code`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-                                                  {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}])
-\openout3 = `logs.pyg'.
+l.146 \subsection
+                 *{Return value}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+\g__tcobox_out_iow=\write7
+\openout7 = `numerics.listing'.
 
- (./_minted-logs/E766551009FF3563712E35B2C18567D68C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/C71602D7D5F10D290579E5F38ED95B0A8C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/A05EE96391875E7AD0AC0B402291D4D68C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/DF6869440BB4F5880C36DCCB57823EE48C0A947C756FE7819181504314875964.pygtex
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 10.
- (/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
-File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 10.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 10.
-)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/70BC6F0D8F29B324BCB91355E229BEBC8C0A947C756FE7819181504314875964.pygtex [3])
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/F979CA67680F8B21503858C8A0B6C6168C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/C54A9CA423CC89555B3826D154A627E58C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/BAC4B3ED709C3E6CBB39CDBDCE99BB0B8C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/B602128B5FD574346F1193A036254FC68C0A947C756FE7819181504314875964.pygtex [4{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/028E4F18A386B064F9E63422DC9A2D978C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/20A72AD11C03F875C5A3CD899C96D51F8C0A947C756FE7819181504314875964.pygtex [5])
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/D78C5E3B486DA42EF5677A6D4D810BA08C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/E936ACA6F3851C1244B222AA109170138C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/7E616877E08CA0AFB5135ADB898518FC8C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/A113638C04A895695E6CA4B18A5A54FF8C0A947C756FE7819181504314875964.pygtex [6])
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/5AC33669E44F5DF922C8E3428186EB8E8C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/1935269C1298FC6957431B6E96F67CD48C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/7CB0E6E1713FAA26EF447A30E0AEEC5B8C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
-
-(./_minted-logs/0B70DF3422380B29F8D33F12CEB9F0F68C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/6954EEDB61771CEE2103E1BAD824C4BA8C0A947C756FE7819181504314875964.pygtex [7])
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/C24124562807FDD714E0A776FC495C358C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/A149B892E1BF8CD2D17FCFF97FF9379C8C0A947C756FE7819181504314875964.pygtex)
-\openout3 = `logs.pyg'.
-
- (./_minted-logs/088C24B9036AAF9F57006918D7D1D04E8C0A947C756FE7819181504314875964.pygtex)
-LaTeX Font Info:    Trying to load font information for OMS+lmr on input line 448.
- (/usr/share/texmf-dist/tex/latex/lm/omslmr.fd
-File: omslmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 448.
- [8] [9] [10] (./logs.aux)
+ (./_minted-numerics/xcode.pygstyle) (./_minted-numerics/24AA8FF0BE6CD29DF1D276B4F29B71FD6854BC3AB30903C2B89755D7F68A3F66.pygtex) [3] [4] (./numerics.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-runsystem(rm logs.pyg)...executed.
+runsystem(rm numerics.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 52499 strings out of 476182
- 1224214 string characters out of 5796233
- 1953975 words of memory out of 5000000
- 73448 multiletter control sequences out of 15000+600000
- 622887 words of font info for 92 fonts, out of 8000000 for 9000
+ 51977 strings out of 476182
+ 1202354 string characters out of 5796233
+ 1947975 words of memory out of 5000000
+ 73050 multiletter control sequences out of 15000+600000
+ 603698 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 106i,11n,110p,763b,1740s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on logs.pdf (10 pages, 275921 bytes).
+ 106i,11n,110p,767b,875s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on numerics.pdf (4 pages, 246438 bytes).
 PDF statistics:
- 251 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 309 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 134 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 500000)
+ 173 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,18 +1,4 @@
 \begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Tp}\PYG{o}{\PYGZgt{}}
-\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{vector}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
-\PYG{k}{public}\PYG{o}{:}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{Tp}\PYG{+w}{ }\PYG{n}{value\PYGZus{}type}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{size\PYGZus{}type}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{value\PYGZus{}type}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{pointer}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{value\PYGZus{}type}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{const\PYGZus{}pointer}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{value\PYGZus{}type}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{reference}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{value\PYGZus{}type}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{const\PYGZus{}reference}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{vector\PYGZus{}iterator}\PYG{o}{\PYGZlt{}}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{value\PYGZus{}type}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{+w}{ }\PYG{n}{iterator}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{vector\PYGZus{}iterator}\PYG{o}{\PYGZlt{}}\PYG{n}{iterator}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{const\PYGZus{}iterator}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{reverse\PYGZus{}iterator}\PYG{o}{\PYGZlt{}}\PYG{n}{iterator}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{reverse\PYGZus{}iterator}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{reverse\PYGZus{}iterator}\PYG{o}{\PYGZlt{}}\PYG{n}{const\PYGZus{}iterator}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{const\PYGZus{}reverse\PYGZus{}iterator}\PYG{p}{;}
-\PYG{+w}{    }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k+kt}{ptrdiff\PYGZus{}t}\PYG{+w}{ }\PYG{n}{difference\PYGZus{}type}\PYG{p}{;}
 \PYG{k}{public}\PYG{o}{:}
 \PYG{+w}{    }\PYG{c+c1}{// Constructors.}
 \PYG{+w}{    }\PYG{n}{vector}\PYG{p}{(}\PYG{n}{size\PYGZus{}type}\PYG{+w}{ }\PYG{n}{sz}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{m\PYGZus{}size}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{m\PYGZus{}capacity}\PYG{p}{(}\PYG{n}{sz}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{data}\PYG{p}{(}\PYG{k}{nullptr}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}\PYGZcb{}}
@@ -64,14 +50,4 @@
 \PYG{+w}{    }\PYG{o}{\PYGZti{}}\PYG{n}{vector}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{k}{delete}\PYG{p}{[]}\PYG{+w}{ }\PYG{n}{data}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-
-\PYG{+w}{    }\PYG{c+c1}{// Capacity.}
-\PYG{+w}{    }\PYG{n}{size\PYGZus{}type}\PYG{+w}{ }\PYG{n}{size}\PYG{p}{()}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{m\PYGZus{}size}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
-\PYG{+w}{    }\PYG{n}{size\PYGZus{}type}\PYG{+w}{ }\PYG{n}{capacity}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{m\PYGZus{}capacity}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
-
-\PYG{k}{private}\PYG{o}{:}
-\PYG{+w}{    }\PYG{n}{size\PYGZus{}type}\PYG{+w}{ }\PYG{n}{m\PYGZus{}size}\PYG{p}{;}
-\PYG{+w}{    }\PYG{n}{size\PYGZus{}type}\PYG{+w}{ }\PYG{n}{m\PYGZus{}capacity}\PYG{p}{;}
-\PYG{+w}{    }\PYG{n}{pointer}\PYG{+w}{ }\PYG{n}{data}\PYG{p}{;}
-\PYG{p}{\PYGZcb{};}
 \end{Verbatim}

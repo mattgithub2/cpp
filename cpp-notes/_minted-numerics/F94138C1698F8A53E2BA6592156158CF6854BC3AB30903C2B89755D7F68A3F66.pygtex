@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{InputIt}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{accumulate}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{+w}{ }\PYG{p}{);}\PYG{+w}{   }\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{InputIt}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{BinaryOp}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{accumulate}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BinaryOp}\PYG{+w}{ }\PYG{n}{op}\PYG{+w}{ }\PYG{p}{);}\PYG{+w}{  }\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}
+\end{Verbatim}

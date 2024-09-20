@@ -230,8 +230,27 @@ int main(int argc, char **argv){
     
     f(foo(1,2));
     print_data(foob);
-        // print_data(erase_test);
-    // std::cout << *dat;
+
+    std::cout <<"\n\n\n";
+    vector<int> et = {1,2,3,4,5,6,7};
+    auto terser = et.erase(et.end());
+    print_data(et);
+    std::cout << *terser;
+    std::cout << "\n\n\n";
+    std::vector<int> ett = {1,2,3,4,5,6,7};
+    auto terserr = ett.erase(ett.end());
+    print_data(ett);
+    std::cout << *terserr;
+    std::cout << "\n\n\n";
+    std::vector<int> fz = {1,2,3,4};
+    fz.push_back(5);
+    auto fzit = fz.end() + 1;
+    std::cout << *fzit;
+    std::printf("\n\n\n");
+    vector<int> fzz = {1,2,3,4};
+    fzz.push_back(1);
+    auto fzzit = fzz.end();
+    std::cout << *fzzit;
 
 }
 // Resize:

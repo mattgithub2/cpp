@@ -1,0 +1,12 @@
+
+int main() {
+    std::vector<int> v = {1,2,3,4,5};
+
+    // reduce returns sum of the elements in the given range
+    int sum = reduce(v.begin(), v.end(), 0);
+    std::cout << "Default execution of the reduce function: " <<  sum << std::endl;
+
+    // here it returns the sum without needing to pass the initial value
+    sum = reduce(v.begin(), v.end());
+    cout << "Execution with default initial value: " << sum << std::endl;
+}

@@ -441,19 +441,19 @@ inline bool operator!=(const vector_iterator<vector>& lhs, const vector_iterator
 }
 template<typename vector>
 inline bool operator>(const vector_iterator<vector>& lhs, const vector_iterator<vector>& rhs) {
-    return !(lhs.base > rhs.base);
+    return (lhs.base > rhs.base);
 }
 template<typename vector>
 inline bool operator<(const vector_iterator<vector>& lhs, const vector_iterator<vector>& rhs) {
-    return !(lhs.base < rhs.base);
+    return (lhs.base < rhs.base);
 }
 template<typename vector>
 inline bool operator>=(const vector_iterator<vector>& lhs, const vector_iterator<vector>& rhs) {
-    return !(lhs.base >= rhs.base);
+    return (lhs.base >= rhs.base);
 }
 template<typename vector>
 inline bool operator<=(const vector_iterator<vector>& lhs, const vector_iterator<vector>& rhs) {
-    return !(lhs.base <= rhs.base);
+    return (lhs.base <= rhs.base);
 }
 \end{minted}
 There are a few things in the iterator class that are worth mentioning. For starters, \texttt{operator++} (prefix) \texttt{operator--} (prefix), \texttt{operator+=}, \texttt{operator-=} should all return a reference to the current object to allow for \textbf{chaining operatations}. Furthermore, the prefix version of \texttt{operator++}, and \texttt{operator--} returns the value of the object after it was changed. Thus, with prefix you can just return \texttt{*this} as a reference. The postfix version is supposed to return the value \textit{before} the value is changed, so you're forced to create a seperate object to represent that value and return it. So with postfix, you must return by value if you want to preserve the expected meaning.
@@ -479,6 +479,15 @@ public:
     typedef std::reverse_iterator<iterator> reverse_iterator;
     typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
     typedef ptrdiff_t difference_type;
+    \end{minted}
+    At the very top of our class definition, what we have here are various typedefs that provide code readabilty and also serve various purposes. For example, if you have ever used \texttt{std::vector}, you probally have done something like this:
+    \begin{minted}[linenos=false]{cpp}
+    std::vector<int>::iterator = v.begin(); 
+    \end{minted}
+    We are allowed to do this through the typedefs provided by the \texttt{std::vector} container.
+    \bigbreak \noindent
+    The next thing to do when implementing our vector container is to create the constructors. The vector container has many constructors for various situations. The following block of code covers the vast majority of constructors:
+    \begin{minted}[linenos=false]{cpp}
 public:
     // Constructors.
     vector(size_type sz = 0) : m_size(0), m_capacity(sz), data(nullptr) {}
@@ -530,11 +539,50 @@ public:
     ~vector() {
         delete[] data;
     }
-     
+     \end{minted}
+     A good vector implementation supports \textit{move constructors} and \textit{move assignment operators} as a means to move one vector container to another without having to perform any copying. Additionally, its important when designing your constructors to provide one that takes a \texttt{std::initalizer\_list}. This is so you can initalize a vector as such:
+     \begin{minted}[linenos=false]{cpp}
+        vector<int> v = {1,2,3,4};
+        vector<int> v({1,2,3,4}); // also valid;
+     \end{minted}
+     \bigbreak \noindent
+     \texttt{initalizer\_list}'s are a fairly interesting feature of C++ and behave in ways that you might not expect them to. For instance, although we dont have a assignment operator overload that takes an \textttt{std::initalizer\_list}, the following statement is entirely valid:
+     \begin{minted}[linenos=false]{cpp}
+        vector<int> v = {1,2,3,4};
+        v = {5,6,7,8};
+     \end{minted}
+     \bigbreak \noindent
+     This is what the compiler is doing with our code, and the reason why this works:
+     \begin{minted}[linenos=false]{cpp}
+        vector<int> v = vector<int>{std::initializer_list<int>{1,2,3,4}};
+        v.operator=(vector<int>{std::initializer_list<int>{5,6,7,8}});
+     \end{minted}
+     So, the compiler is creating a temporary object of type \texttt{vector<int>}, resulting in a call to the constructor that takes an \texttt{initializer\_list}. It then uses that object in the subsequent call to \texttt{operator=}. If you are confused as to why we can pass an r-value to \texttt{opeartor=}, which expects a l-value reference, its due to the fact that \texttt{const} l-values can bind to r-values. If \texttt{operator=} took a non-const object, then the code would not work.
+     \bigbreak \noindent
+     Next on the list is our capacity member functions.
+
+     \begin{minted}[linenos=false]{cpp}
     // Capacity.
     size_type size() const { return m_size; }
+    size_type max_size const { return std::numerical_limits<size_t>::max(); }
     size_type capacity const { return m_capacity; }
-
+    bool empty() { return m_size == 0;}
+    void resize(size_type sz) {
+       if (sz > m_size ) {
+            if (sz > m_capacity) {
+                reserve(std::max(sz, (2*m_capacity)));
+            }
+            size_type n_fill = sz - m_size;
+            std::fill_n(n_fill, value_type());
+            m_size = sz;
+       }
+       if (sz < m_size) {
+            for (size_t i = m_size; i > sz; --i) {
+                m_data[i].~value_type();
+            }
+            m_size = sz;
+       }
+    }
 private:
     size_type m_size;
     size_type m_capacity;

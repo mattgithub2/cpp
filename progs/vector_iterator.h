@@ -93,7 +93,7 @@ public:
         return (ptr > rhs.ptr);
     }
     bool operator<(const vector_iterator<vector>& rhs) {
-        return !(ptr < rhs.ptr);
+        return !(ptr > rhs.ptr);
     }
     bool operator>=(const vector_iterator<vector>& rhs) {
         return !(ptr >= rhs.ptr);

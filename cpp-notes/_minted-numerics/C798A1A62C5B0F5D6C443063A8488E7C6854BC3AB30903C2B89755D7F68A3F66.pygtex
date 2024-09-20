@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{multiplies}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{minus}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{plus}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{divides}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{modulus}\PYG{o}{\PYGZlt{}}\PYG{n}{T}\PYG{o}{\PYGZgt{}}\PYG{p}{();}
+\end{Verbatim}

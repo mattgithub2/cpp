@@ -1,0 +1,171 @@
+\documentclass{report}
+
+\input{~/latex/template/preamble.tex}
+\input{~/latex/template/macros.tex}
+
+\title{\Huge{Numerical algorithms}}
+\author{\huge{Matt Warner}}
+\date{\huge{}}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+\lhead{\leftmark}
+\cfoot{\thepage}
+% \usepackage[default]{sourcecodepro} \usepackage[T1]{fontenc}
+
+\pgfpagesdeclarelayout{boxed}
+{
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=1,%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {
+    border code=\pgfsetlinewidth{1.5pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.95\pgfphysicalwidth,%
+    resized height=.95\pgfphysicalheight,%
+    center=\pgfpoint{.5\pgfphysicalwidth}{.5\pgfphysicalheight}%
+  }%
+}
+
+\pgfpagesuselayout{boxed}
+
+\begin{document}
+    \maketitle
+\noindent Contained the the header file: \texttt{numeric}, are a couple of benefical functions. Here are the four major ones:
+\section{std::accumlate}
+Computes the sum (by default) of the given value \texttt{init} and the elements in the range [first, last), and returns the computed sum. \texttt{std::accumulate} has one definition that simply takes iterators \texttt{first} and \texttt{last}, and \texttt{init}, which is used to initialize the accumulator \texttt{acc}. The other definition of \texttt{std::accumulate} takes the same parameters as the previous definition, but adds an additional fourth parameter, \texttt{op}. Which is a \textit{binary function object} that is applied. This binary function object can be used to perform other operators on the container like multiply, etc.
+\bigbreak \noindent
+The below snippet are the two declarations.
+\begin{minted}[linenos=false]{cpp}
+template< class InputIt, class T >
+T accumulate( InputIt first, InputIt last, T init );   (1)
+
+template< class InputIt, class T, class BinaryOp >
+T accumulate( InputIt first, InputIt last, T init, BinaryOp op );  (2)
+\end{minted}
+Note that if any of the following conditions is satisfied, the behavior is undefined.
+\begin{itemize}
+    \item \texttt{T} is not \textit{CopyConstructable}
+    \item \texttt{T} is not \textit{CopyAssignable}
+    \item \texttt{op} modifies any elements of [first, last)
+    \item \texttt{op} invalidates any iterator or subrange in [first, last).
+\end{itemize}
+        \bigbreak \noindent
+        Also note that the signature of \texttt{op} should be equivalent to the following (doesn't strictly need to be const \&).
+        \begin{minted}[linenos=false]{cpp}
+        Ret fun(const Type1&, const Type2 &b);
+        \end{minted}
+        \noindent Further note that the type \texttt{Type1} must be such that an object of type \texttt{T} can be implicitly converted to \texttt{Type1}. The type \texttt{Type2} must be such that an object of type \texttt{InputIt} can be dereferenced and then implicitly converted to \texttt{Type2}. Lastly, the type \texttt{Ret} must be such that an object of type \texttt{T} can be assigned a value of type \texttt{Ret}.
+        \bigbreak \noindent
+    The behavior of this function template is equivalent to:
+    \begin{minted}[linenos=false]{cpp}
+    template <typename InputIterator, typename T> 
+    T accumulate (InputIterator first, InputIterator last, T init) {
+        while (first != last) {
+            init = init + *first;
+            ++first;
+        }
+        return init;
+    }
+    \end{minted}
+    Or if you provide a function object:
+    \begin{minted}[linenos=false]{cpp}
+     
+    template <typename InputIterator, typename T> 
+    T accumulate (InputIterator first, InputIterator last, T init) {
+        while (first != last) {
+            init = binary_op(init, *first);
+            ++first;
+        }
+        return init;
+    }
+    \end{minted}
+Also note that the header file <functional> provides a couple of function objects that are handy for something like \texttt{std::accumulate}. These include:
+\begin{minted}[linenos=false]{cpp}
+std::multiplies<T>();
+std::minus<T>();
+std::plus<T>();
+std::divides<T>();
+std::modulus<T>();
+\end{minted}
+Heres an example program that uses \texttt{std::accumulate}
+\begin{minted}[linenos=false]{cpp}
+#include <functional>
+#include <iostream>
+#include <numeric>
+#include <string>
+#include <vector>
+
+int main() {
+    std::vector<int> v{1,2,3,4,5,6,7,8,9,10};
+    int sum = std::accumulate(v.begin(), v.end(), 0);
+    int product = std::accumulate(v.begin(), v.end(), 1, std::multiplies<int>());
+
+    auto dash_fold = [](std::string a, int b) {
+        return std::move(a) + " - " + std::to_string(b);
+    }
+    std::string s = std::accumulate(std::next(v.begin()), v.end(), )
+}
+\end{minted}
+    \section{reduce (c++17)}
+    The \texttt{reduce()} method in C++ is used for applying an algorithm to a range of elements in an array. By default, it returns the sum of values of elements in the applied range. It behaves similarly to \texttt{std::accumulate in STL}.
+    \bigbreak \noindent
+    There are a variety of overloads for the reduce function. We have:
+    \begin{minted}[linenos=false]{cpp}
+template<class Inputit>
+typename std::iterator_traits<InputIt>::value_type
+reduce(InputIt first, InputIt last);
+     
+template<class ExecutionPolicy, class ForwardIt>
+typename std::iterator_traits<ForwardIt>::value_type
+reduce(ExecutionPolicy&& policy, ForwardIt first, FowardIt last);
+    
+template<class InputIt, class T>
+T reduce(InputIt first, InputIt last, T init);
+
+template<class ExecutionPolicy, class ForwardIt, class T>
+T reduce(Execution Policy, ForwardIt first, Forward It last, T init);
+
+template< class InputIt, class T, class BinaryOp >
+T reduce( InputIt first, InputIt last, T init, BinaryOp op );
+    
+template<class ExecutionPolicy, class T, class BinaryOp>
+typename std::iterator_traits<ForwardIt>::value_type
+T reduce(ExecutionPolicy&& policy, ForwardIt first, ForwardIt last, T init, BinaryOp op);
+    \end{minted}
+    \subsection*{Parameters}
+    \textit{\textbf{first, last}}  \ - \ the range of elements to apply the algorithm to \vspace{1.5mm} \\ 
+    \textit{\textbf{init}} \ - \ the initial value of the generalized sum \vspace{1.5mm} \\
+    \textit{\textbf{policy}} \ - \ the execution policy to use. \vspace{1.5mm} \\
+    \textit{\textbf{op}} \ - \ binary \textit{function object} that will be applied in unspecified order to the result of dereferencing the input iterators, the result of other \texttt{op} and \texttt{init}
+\subsection*{Return value}
+Returns the value of the result of the reduction operation.
+\subsubsection*{Execution Policies}
+Execution policies are a C++17 feature which allows programmers to ask for algorithms to be parallelised. These are three execution policies in C++17:
+\begin{itemize}
+    \item \texttt{std::execution::seq} \ - \ do not parallelise
+    \item \texttt{std::execution::par} \ - \ parallelise
+    \item \texttt{std::exection::par\_unseq} \ - \ parallelise and vectorise (requires that the operation can be interleaved, so no acquiring mutexes and such)
+\end{itemize} 
+\subsection*{Example:} 
+\begin{cppcode}
+  
+int main() {
+    std::vector<int> v = {1,2,3,4,5};
+
+    // reduce returns sum of the elements in the given range
+    int sum = reduce(v.begin(), v.end(), 0); 
+    std::cout << "Default execution of the reduce function: " <<  sum << std::endl;
+
+    // here it returns the sum without needing to pass the initial value
+    sum = reduce(v.begin(), v.end());
+    cout << "Execution with default initial value: " << sum << std::endl;
+}
+\end{cppcode}
+
+\end{document}

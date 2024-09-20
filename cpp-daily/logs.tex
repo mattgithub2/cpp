@@ -440,5 +440,21 @@ Note that this is using fold expression. Pre c++17 would require some recursion 
         }
     }; print(print, std::forward<decltype(args)>(args)...); };
 \end{minted}
+\section{9/12/24}
+\subsection{Aggregate types}
+\subsection{Structured bindings}
+Binds the specified names to subobjects or elements of the initializer. Like a reference, a structured binding is an alias to an existing object. Unlike a reference, a structured binding does not have to be a reference type.
+\textit{\texttt{attr}}(optional) \textit{\texttt{cv-auto ref-qualifier}}(optional)[identifier-list] = \textit{\texttt{expression}};      \ \ \ \ \ \ \ \  (1) \vspace{1.5mm} \\
+\textit{\texttt{attr}}(optional) \textit{\texttt{cv-auto ref-qualifier}}(optional)[identifier-list]\{\textit{\texttt{expression}}\}      \ \ \ \ \ \ \ \ \ \  (2) \vspace{1.5mm} \\
+\textit{\texttt{attr}}(optional) \textit{\texttt{cv-auto ref-qualifier}}(optional)[identifier-list](\textit{\texttt{expression}})      \ \ \ \ \ \ \ \ \ \  (3)
+\bigbreak \noindent
+\textit{\textbf{attr}} \ - \ sequence of any number of \textbf{attributes} \vspace{2mm} \\
+\textit{\textbf{cv-auto}} \ - \ possibly cv-qualified type specifier \texttt{auto}, may also include \textbf{storage class specifier} \texttt{static} or \texttt{thread\_local}; including \texttt{volatile} in cv-qualifiers is deprecated (since C++ 20) \vspace{2mm} \\
+\textit{\textbf{ref-qualifier}} \ - \ either \texttt{\&} or \texttt{\&\&} \vspace{2mm} \\
+\textit{\textbf{identifier-list}} \ - \ list of comma-seperated identifiers. \vspace{2mm} \\
+\textit{\textbf{expression}} \ - \ an expression that does not have the comma operator at the top level (gramatically, an \textit{assignment-expression}), and has either array or non-union class type. If \textit{\textbf{expression}} refers to any of the names from \textit{\textbf{identifier-list}}, the declaration is ill-formed.
+
+
+
 
 \end{document}

@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{InputIterator}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{accumulate}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{InputIterator}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIterator}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{first}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{init}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{init}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{first}\PYG{p}{;}
+\PYG{+w}{        }\PYG{o}{++}\PYG{n}{first}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
