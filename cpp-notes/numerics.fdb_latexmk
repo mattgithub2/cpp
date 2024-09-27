@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1726591169.56223 "numerics.tex" "numerics.pdf" "numerics" 1726591171.00858 0
+["pdflatex"] 1727148584.8759 "numerics.tex" "numerics.pdf" "numerics" 1727148586.35976 0
   "/home/matt/latex/template/macros.tex" 1718857932.15378 3389 93000260d2aea292d29c76d4ace77a29 ""
   "/home/matt/latex/template/preamble.tex" 1726278981.30775 24539 3b2ca990e7a93f32c9ebe8ee00f0fafd ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc" 1202520719 2327 9d6df24f9c4f7368395224341a95523a ""
@@ -332,9 +332,9 @@
   "_minted-numerics/F94138C1698F8A53E2BA6592156158CF6854BC3AB30903C2B89755D7F68A3F66.pygtex" 1726454443.10455 1169 fe739d25922716d68dc8c443b5330326 ""
   "_minted-numerics/default.pygstyle" 1726278927.02745 6428 74aba51736a5bc6590f8f7dd413c6f27 ""
   "_minted-numerics/xcode.pygstyle" 1726342970.52442 5481 24f87b3a468d9608495eeec37307abb4 ""
-  "numerics.aux" 1726591170.85906 1763 5c56c0c810c4d36ac37abf0ec2ceced8 "pdflatex"
-  "numerics.listing" 1726591170.83906 431 24aa8ff0be6cd29df1d276b4f29b71fd "pdflatex"
-  "numerics.tex" 1726512203.55549 7444 cc5a2968f900cdfac776511f65c40af7 ""
+  "numerics.aux" 1727148586.20805 2162 c52171701f8aa005ae9d7c0de685aca7 "pdflatex"
+  "numerics.listing" 1727148586.18472 431 24aa8ff0be6cd29df1d276b4f29b71fd "pdflatex"
+  "numerics.tex" 1727148582.90803 7472 74bed9aa4c4f59292ba966ca36aeef82 ""
   (generated)
   "numerics.aux"
   "numerics.listing"

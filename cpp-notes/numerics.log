@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023 Gentoo Linux) (preloaded format=pdflatex 2024.8.2)  17 SEP 2024 11:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023 Gentoo Linux) (preloaded format=pdflatex 2024.8.2)  23 SEP 2024 22:29
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1584,18 +1584,18 @@ runsystem(rm numerics.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 51977 strings out of 476182
- 1202354 string characters out of 5796233
+ 51979 strings out of 476182
+ 1202375 string characters out of 5796233
  1947975 words of memory out of 5000000
- 73050 multiletter control sequences out of 15000+600000
+ 73051 multiletter control sequences out of 15000+600000
  603698 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  106i,11n,110p,767b,875s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on numerics.pdf (4 pages, 246438 bytes).
+Output written on numerics.pdf (4 pages, 246907 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
- 173 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 138 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
