@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{Inputit}\PYG{o}{\PYGZgt{}}
+\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{std}\PYG{o}{::}\PYG{n}{iterator\PYGZus{}traits}\PYG{o}{\PYGZlt{}}\PYG{n}{InputIt}\PYG{o}{\PYGZgt{}::}\PYG{n}{value\PYGZus{}type}
+\PYG{n}{reduce}\PYG{p}{(}\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{);}
+
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ExecutionPolicy}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ForwardIt}\PYG{o}{\PYGZgt{}}
+\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{std}\PYG{o}{::}\PYG{n}{iterator\PYGZus{}traits}\PYG{o}{\PYGZlt{}}\PYG{n}{ForwardIt}\PYG{o}{\PYGZgt{}::}\PYG{n}{value\PYGZus{}type}
+\PYG{n}{reduce}\PYG{p}{(}\PYG{n}{ExecutionPolicy}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{policy}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ForwardIt}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{FowardIt}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{);}
+
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{InputIt}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{reduce}\PYG{p}{(}\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{);}
+
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ExecutionPolicy}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ForwardIt}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{reduce}\PYG{p}{(}\PYG{n}{Execution}\PYG{+w}{ }\PYG{n}{Policy}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ForwardIt}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Forward}\PYG{+w}{ }\PYG{n}{It}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{);}
+
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{InputIt}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{BinaryOp}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{reduce}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BinaryOp}\PYG{+w}{ }\PYG{n}{op}\PYG{+w}{ }\PYG{p}{);}
+
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ExecutionPolicy}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{BinaryOp}\PYG{o}{\PYGZgt{}}
+\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{std}\PYG{o}{::}\PYG{n}{iterator\PYGZus{}traits}\PYG{o}{\PYGZlt{}}\PYG{n}{ForwardIt}\PYG{o}{\PYGZgt{}::}\PYG{n}{value\PYGZus{}type}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{reduce}\PYG{p}{(}\PYG{n}{ExecutionPolicy}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{policy}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ForwardIt}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ForwardIt}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BinaryOp}\PYG{+w}{ }\PYG{n}{op}\PYG{p}{);}
+\end{Verbatim}

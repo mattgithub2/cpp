@@ -1,5 +1,0 @@
- A + 1 // Not allowed
- A - 1 // Not allowed
- A += 2; // Not allowed
- A = 5; // Not allowed
- ...

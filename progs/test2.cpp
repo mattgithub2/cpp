@@ -1,15 +1,9 @@
 #include <iostream>
-
-[[nodiscard]] int f(int x) {
-
-    if (x > 0) {
-        return f(x-1) * x;
-    }
-    return x;
-}
+#include <vector>
 int main(int argc, char **argv){
 
-    std::cout << f(3);
+    std::vector v = {1,2,3,4} ;
+    
 
 
     return 0;

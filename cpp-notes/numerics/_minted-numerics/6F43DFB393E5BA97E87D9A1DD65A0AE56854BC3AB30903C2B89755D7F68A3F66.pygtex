@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{InputIt1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{InputIt2}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}
+\PYG{+w}{         }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{BinaryOp1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{BinaryOp2}\PYG{o}{\PYGZgt{}}
+\PYG{k}{constexpr}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{inner\PYGZus{}product}\PYG{p}{(}\PYG{n}{InputIt1}\PYG{+w}{ }\PYG{n}{first1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt1}\PYG{+w}{ }\PYG{n}{last1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt2}\PYG{+w}{ }\PYG{n}{first2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BinaryOp1}\PYG{+w}{ }\PYG{n}{op1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BinaryOp2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{op2}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{first1}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{last1}\PYG{p}{)}
+\PYG{+w}{    }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{init}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{op1}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{move}\PYG{p}{(}\PYG{n}{init}\PYG{p}{),}\PYG{+w}{ }\PYG{n}{op2}\PYG{p}{(}\PYG{o}{*}\PYG{n}{first1}\PYG{p}{,}\PYG{o}{*}\PYG{n}{first2}\PYG{p}{));}
+\PYG{+w}{        }\PYG{o}{++}\PYG{n}{first1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{o}{++}\PYG{n}{first2}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

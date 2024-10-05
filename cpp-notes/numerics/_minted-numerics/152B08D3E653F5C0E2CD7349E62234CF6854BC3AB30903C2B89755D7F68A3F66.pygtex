@@ -1,0 +1,42 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// Default transform and reduce operations (multiple and add)}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{InputIt1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{InputIt2}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{transform\PYGZus{}reduce}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{InputIt1}\PYG{+w}{ }\PYG{n}{first1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt1}\PYG{+w}{ }\PYG{n}{last1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt2}\PYG{+w}{ }\PYG{n}{first2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{);}
+
+
+\PYG{c+c1}{// Takes two binary function objects.}
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{InputIt1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{InputIt2}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{p}{,}
+\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{BinaryOp1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{BinaryOp2}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{transform\PYGZus{}reduce}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{InputIt1}\PYG{+w}{ }\PYG{n}{first1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt1}\PYG{+w}{ }\PYG{n}{last1}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{InputIt2}\PYG{+w}{ }\PYG{n}{first2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{BinaryOp1}\PYG{+w}{ }\PYG{n}{reduce}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BinaryOp2}\PYG{+w}{ }\PYG{n}{transform}\PYG{+w}{ }\PYG{p}{);}
+
+\PYG{c+c1}{// Takes an Execution policy}
+\PYG{k}{template}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ExecutionPolicy}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ForwardIt1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ForwardIt2}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{transform\PYGZus{}reduce}\PYG{p}{(}\PYG{n}{ExecutionPolicy}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{policy}\PYG{p}{,}
+\PYG{+w}{                   }\PYG{n}{FowardIt1}\PYG{+w}{ }\PYG{n}{first1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ForwardIt1}\PYG{+w}{ }\PYG{n}{last1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ForwardIt2}\PYG{+w}{ }\PYG{n}{first2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{);}
+
+\PYG{c+c1}{// Takes an Execution policy and two binary function objects.}
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ExecutionPolicy}\PYG{p}{,}
+\PYG{+w}{          }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ForwardIt1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ForwardIt2}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{p}{,}
+\PYG{+w}{          }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{BinaryOp1}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{BinaryOp2}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{transform\PYGZus{}reduce}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{ExecutionPolicy}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{policy}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{ForwardIt1}\PYG{+w}{ }\PYG{n}{first1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ForwardIt1}\PYG{+w}{ }\PYG{n}{last1}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{ForwardIt2}\PYG{+w}{ }\PYG{n}{first2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{BinaryOp1}\PYG{+w}{ }\PYG{n}{reduce}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{BinaryOp2}\PYG{+w}{ }\PYG{n}{transform}\PYG{+w}{ }\PYG{p}{)}
+
+\PYG{c+c1}{// Only requires one container}
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{InputIt}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{p}{,}
+\PYG{+w}{          }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{BinaryOp}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{UnaryOp}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{transform\PYGZus{}reduce}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{InputIt}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{BinaryOp}\PYG{+w}{ }\PYG{n}{reduce}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{UnaryOp}\PYG{+w}{ }\PYG{n}{transform}\PYG{+w}{ }\PYG{p}{);}
+
+\PYG{c+c1}{// One container, takes execution policy}
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ExecutionPolicy}\PYG{p}{,}
+\PYG{+w}{          }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{ForwardIt}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{T}\PYG{p}{,}
+\PYG{+w}{          }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{BinaryOp}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{typename}\PYG{+w}{ }\PYG{n+nc}{UnaryOp}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}
+\PYG{n}{T}\PYG{+w}{ }\PYG{n}{transform\PYGZus{}reduce}\PYG{p}{(}\PYG{+w}{ }\PYG{n}{ExecutionPolicy}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{policy}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{ForwardIt}\PYG{+w}{ }\PYG{n}{first}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ForwardIt}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{T}\PYG{+w}{ }\PYG{n}{init}\PYG{p}{,}
+\PYG{+w}{                    }\PYG{n}{BinaryOp}\PYG{+w}{ }\PYG{n}{reduce}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{UnaryOp}\PYG{+w}{ }\PYG{n}{transform}\PYG{+w}{ }\PYG{p}{);}
+
+\end{Verbatim}
